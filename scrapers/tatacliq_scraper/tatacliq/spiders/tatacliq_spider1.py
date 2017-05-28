@@ -1,8 +1,8 @@
 import scrapy, sys, os
 #sys.path.append('/'.join(os.path.abspath('').split('/')[:-1]))
-sys.path.append('/home/john/Scripts/upwork_projects/scraping/scrapers/tatacliq_scraper/tatacliq')
-from com_functions import csv_opener, log_opener, csv_writer
-from functions import tatacliq_item_parser, tatacliq_items_parser
+#sys.path.append('/home/john/Scripts/upwork_projects/scraping/scrapers/tatacliq_scraper/tatacliq')
+from tatacliq.com_functions import csv_opener, log_opener, csv_writer
+from tatacliq.functions import tatacliq_item_parser, tatacliq_items_parser
 from urlparse import urljoin
 
 
@@ -10,8 +10,7 @@ class MySpider1(scrapy.Spider):
     name = 'tatacliq1'
     allowed_domains = ['tatacliq.com']
 
-    def __init__(self):
-        fh = csv_opener('tatacliq_tablets')
+    fh = csv_opener('tatacliq_tablets')
 
     def start_requests(self):
         for x in range(1, 15):

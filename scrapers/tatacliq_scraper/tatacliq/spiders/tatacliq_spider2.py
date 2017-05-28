@@ -10,8 +10,7 @@ class MySpider2(scrapy.Spider):
     name = 'tatacliq2'
     allowed_domains = ['tatacliq.com']
 
-    def __init__(self):
-        fh = csv_opener('tatacliq_mobile_phones')
+    fh = csv_opener('tatacliq_mobile_phones')
 
     def start_requests(self):
         for x in range(1, 15):

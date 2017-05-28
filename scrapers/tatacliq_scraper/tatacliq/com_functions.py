@@ -3,8 +3,8 @@ from datetime import datetime
 import time, os
 
 def csv_opener(fn):
-    #path = '/'.join(os.path.abspath('').split('/')[:-4])+'/output/'
-    path = '/home/john/Scripts/upwork_projects/scraping/output/'
+    path = '/'.join(os.path.abspath('').split('/')[:-2])+'/output/'
+    #path = '/home/john/Scripts/upwork_projects/scraping/output/'
     fn = path + fn + '.csv'
     header = 'id,name,permalink,create_date,mrp,price,offer_price,discount,store_id,category_id,\
               data_source,ref_id,url,description,deal_notes,meta_title,meta_key,meta_des,brand,\
