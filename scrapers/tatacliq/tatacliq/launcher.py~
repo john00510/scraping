@@ -6,5 +6,6 @@ from spiders.tatacliq_spider2 import MySpider2
 
 process = CrawlerProcess(get_project_settings())
 process.crawl(MySpider1)
+process.crawl(MySpider2)
 process.start()
 

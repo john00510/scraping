@@ -1,19 +1,25 @@
 import scrapy
-from tatacliq.com_functions import csv_opener
-from tatacliq.functions import tatacliq_item_parser, tatacliq_items_parser
+from com_functions import csv_opener, mongo_db
+from functions import tatacliq_item_parser, tatacliq_items_parser
 from urlparse import urljoin
+from urls import urls
 
 
 class MySpider2(scrapy.Spider):
     name = 'tatacliq2'
     allowed_domains = ['tatacliq.com']
 
+    pgs = urls[1]['pages']
+    url = urls[1]['url']
+    itms = urls[1]['items']
+
     fh = csv_opener('tatacliq_mobile_phones')
+    client, coll = mongo_db()
 
     def start_requests(self):
-        for x in range(1, 15):
-            #url = 'https://www.tatacliq.com/electronics/c-msh12/page-%s' % x
-            url = 'https://www.tatacliq.com/electronics-mobile-phones/c-msh1210/page-%s' % x
+        for x in range(1, int(self.pgs)+1):
+            #url = 'https://www.tatacliq.com/electronics-mobile-phones/c-msh1210/page-%s' % x
+            urll = self.url + '/page-%s' % x
             yield scrapy.Request(url, callback=self.parse, headers={'referer': 'https://www.tatacliq.com'})
 
     def parse(self, response):
@@ -30,7 +36,7 @@ class MySpider2(scrapy.Spider):
             )
 
     def parse_items(self, response):
-        tatacliq_item_parser(response, self.fh)
+        tatacliq_item_parser(response, self.fh, self.coll)
 
 
 

@@ -1,9 +1,10 @@
 from selenium import webdriver
 from datetime import datetime
+from pymongo import MongoClient
 import time, os
 
 def csv_opener(fn):
-    path = '/'.join(os.path.abspath('').split('/')[:-2])+'/output/'
+    path = '/'.join(os.path.abspath('').split('/')[:-3])+'/output/'
     fn = path + fn + '.csv'
     header = 'id,name,permalink,create_date,mrp,price,offer_price,discount,store_id,category_id,\
               data_source,ref_id,url,description,deal_notes,meta_title,meta_key,meta_des,brand,\
@@ -76,14 +77,21 @@ def selenium_spider(url):
         driver.get(url)
         return driver
 
-    driver = firefox_wd()
+    driver = phantomjs_wd()
+    time.sleep(10)
     return driver
 
-def mongodb_writer():
-    pass
+def mongo_db():
+    client = MongoClient()
+    db = client.stores
+    coll = db.tatacliq
+    return client, coll
 
-
-
+def mongo_writer(coll, item):
+    try:
+        coll.insert(item)
+    except Exception, e:
+        print str(e)
 
 
 

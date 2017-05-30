@@ -1,5 +1,6 @@
 from selenium import webdriver
 from datetime import datetime
+from pymongo import MongoClient
 import time, os
 
 def csv_opener(fn):
@@ -77,13 +78,20 @@ def selenium_spider(url):
         return driver
 
     driver = firefox_wd()
+    time.sleep(5)
     return driver
 
-def mongodb_writer():
-    pass
+def mongo_db():
+    client = MongoClient()
+    db = client.stores
+    coll = db.tatacliq
+    return client, coll
 
-
-
+def mongo_writer(coll, item):
+    try:
+        coll.insert(item)
+    except Exception, e:
+        print str(e)
 
 
 
