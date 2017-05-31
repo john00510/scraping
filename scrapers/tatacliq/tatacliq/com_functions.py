@@ -18,16 +18,6 @@ def csv_opener(fn):
     fh.write(header)
     return fh
 
-def log_opener(fn):
-    path = '/'.join(os.path.abspath('').split('/')[:-3])+'/logs/'
-    fn = path + fn + '.log'
-    fh = open(fn, 'w')
-    return fh
-
-def log_writer(fh, url, error):
-    line = str(error) + ' | ' + url + '\n'
-    fh.write(line)
-
 def csv_writer(fh, id, name, permalink, create_date, mrp,price,offer_price,discount,store_id,category_id,\
                data_source,ref_id,url,description,deal_notes,meta_title,meta_key,meta_des,brand, size,\
                size_unit,color,key_features,features,specifications,offers,in_stock,free_shipping,\

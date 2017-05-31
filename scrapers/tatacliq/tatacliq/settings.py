@@ -98,5 +98,3 @@ RETRY_HTTP_CODES = [500, 503, 504, 400, 403, 404, 408]
 PROXY_LIST = '/'.join(os.path.abspath('').split('/')[:-3])+'/proxies/proxiess.txt'
 PROXY_MODE = 0
 
-
-

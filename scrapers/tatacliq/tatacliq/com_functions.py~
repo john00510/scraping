@@ -4,7 +4,7 @@ from pymongo import MongoClient
 import time, os
 
 def csv_opener(fn):
-    path = '/'.join(os.path.abspath('').split('/')[:-3])+'/output/'
+    path = '/'.join(os.path.abspath('').split('/')[:-3])+'/output/tatacliq/'
     fn = path + fn + '.csv'
     header = 'id,name,permalink,create_date,mrp,price,offer_price,discount,store_id,category_id,\
               data_source,ref_id,url,description,deal_notes,meta_title,meta_key,meta_des,brand,\
