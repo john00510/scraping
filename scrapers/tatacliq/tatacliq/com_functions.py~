@@ -77,8 +77,8 @@ def selenium_spider(url):
         driver.get(url)
         return driver
 
-    driver = phantomjs_wd()
-    time.sleep(10)
+    driver = firefox_wd()
+    time.sleep(5)
     return driver
 
 def mongo_db():
