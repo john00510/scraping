@@ -23,6 +23,7 @@ def group_parser(fh, coll, fhl):
     obj = r.json()['apiGroups']['affiliate']['apiListings']
     for k, v in obj.iteritems():
         if v['apiName'] not in groups: continue
+        print k
         item_url = v['availableVariants']['v1.1.0']['get']
         list_parser(item_url, fh, coll, fhl)
 
