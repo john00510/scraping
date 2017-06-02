@@ -1,0 +1,1345 @@
+{
+    "apiGroups": {
+        "affiliate": {
+            "apiListings": {
+                "desktops": {
+                    "apiName": "desktops", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/6bo-igk.json?expiresAt=1496294423939&sig=a52b7908a04b68b26281fc1603538124", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/6bo-igk.json?expiresAt=1496294423939&sig=165b58b0f6657db8b1fca38ab2c9b552", 
+                            "put": null, 
+                            "resourceName": "desktops", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/6bo-igk.json?expiresAt=1496294423939&sig=a52b7908a04b68b26281fc1603538124", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/6bo-igk.json?expiresAt=1496294423939&sig=d5dc8008165785bb952915a07e69a921", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "desktops", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/6bo-igk.json?expiresAt=1496294423939&sig=d5dc8008165785bb952915a07e69a921", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "fragrances": {
+                    "apiName": "fragrances", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/t06-r3o.json?expiresAt=1496294423937&sig=62e9dad4ebd0d483c55eeb886d40ade4", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/t06-r3o.json?expiresAt=1496294423937&sig=e9b318cc9afd81a197903a841dfe0baa", 
+                            "put": null, 
+                            "resourceName": "fragrances", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/t06-r3o.json?expiresAt=1496294423937&sig=62e9dad4ebd0d483c55eeb886d40ade4", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/t06-r3o.json?expiresAt=1496294423936&sig=8a3bac68652eb77d2f291fc784cf5e20", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "fragrances", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/t06-r3o.json?expiresAt=1496294423936&sig=8a3bac68652eb77d2f291fc784cf5e20", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "home_improvement_tools": {
+                    "apiName": "home_improvement_tools", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/amz.json?expiresAt=1496294423947&sig=4e87c3ebd0bef276fe07453e14b410e5", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/amz.json?expiresAt=1496294423947&sig=812df7e24f68092bed8d65cb51437f44", 
+                            "put": null, 
+                            "resourceName": "home_improvement_tools", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/amz.json?expiresAt=1496294423947&sig=4e87c3ebd0bef276fe07453e14b410e5", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/amz.json?expiresAt=1496294423947&sig=edc9be4e8b7809462ceed59f5d49fb71", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "home_improvement_tools", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/amz.json?expiresAt=1496294423947&sig=edc9be4e8b7809462ceed59f5d49fb71", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "gaming": {
+                    "apiName": "gaming", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/4rr.json?expiresAt=1496294423943&sig=c9b39021272f62e5f77421ef37494c33", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/4rr.json?expiresAt=1496294423943&sig=1043c5635c50532d1383d27f5632c47d", 
+                            "put": null, 
+                            "resourceName": "gaming", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/4rr.json?expiresAt=1496294423943&sig=c9b39021272f62e5f77421ef37494c33", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/4rr.json?expiresAt=1496294423943&sig=149cf169f0dd6250a3314315d00ce775", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "gaming", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/4rr.json?expiresAt=1496294423943&sig=149cf169f0dd6250a3314315d00ce775", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "computer_components": {
+                    "apiName": "computer_components", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/6bo-g0i.json?expiresAt=1496294423938&sig=99a5db97861a47d299b931b73f522110", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/6bo-g0i.json?expiresAt=1496294423938&sig=24cfa52341a16845a4363994a7078d90", 
+                            "put": null, 
+                            "resourceName": "computer_components", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/6bo-g0i.json?expiresAt=1496294423938&sig=99a5db97861a47d299b931b73f522110", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/6bo-g0i.json?expiresAt=1496294423938&sig=1ce301bbe0193c5ab6a1e02c0fe097af", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "computer_components", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/6bo-g0i.json?expiresAt=1496294423938&sig=1ce301bbe0193c5ab6a1e02c0fe097af", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "womens_footwear": {
+                    "apiName": "womens_footwear", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/osp-iko.json?expiresAt=1496294423942&sig=9dd860dee1f7f62e79ae8c3ba4ee28b8", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/osp-iko.json?expiresAt=1496294423942&sig=94457c86362a7e55f2ee956edbcaa42b", 
+                            "put": null, 
+                            "resourceName": "womens_footwear", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/osp-iko.json?expiresAt=1496294423942&sig=9dd860dee1f7f62e79ae8c3ba4ee28b8", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/osp-iko.json?expiresAt=1496294423942&sig=6e2c8000541d02becd81019a0b2ae665", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "womens_footwear", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/osp-iko.json?expiresAt=1496294423942&sig=6e2c8000541d02becd81019a0b2ae665", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "toys": {
+                    "apiName": "toys", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/mgl.json?expiresAt=1496294423936&sig=81793c8eaf58f09ab030cb68ea684be2", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/mgl.json?expiresAt=1496294423936&sig=0bfce011b10b5c70e9f1b53fbb3ac613", 
+                            "put": null, 
+                            "resourceName": "toys", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/mgl.json?expiresAt=1496294423936&sig=81793c8eaf58f09ab030cb68ea684be2", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/mgl.json?expiresAt=1496294423936&sig=33d55d94c0834681aa80b1c9498efed2", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "toys", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/mgl.json?expiresAt=1496294423936&sig=33d55d94c0834681aa80b1c9498efed2", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "microwave_ovens": {
+                    "apiName": "microwave_ovens", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/j9e-m38-o49.json?expiresAt=1496294423946&sig=622d5e68868ff07d96ffbd353b53038d", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/j9e-m38-o49.json?expiresAt=1496294423946&sig=9e0f5cbfb115237761fc76a4c39348e2", 
+                            "put": null, 
+                            "resourceName": "microwave_ovens", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/j9e-m38-o49.json?expiresAt=1496294423946&sig=622d5e68868ff07d96ffbd353b53038d", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/j9e-m38-o49.json?expiresAt=1496294423946&sig=580b9046a875c86c0bf4cafdaadd15db", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "microwave_ovens", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/j9e-m38-o49.json?expiresAt=1496294423946&sig=580b9046a875c86c0bf4cafdaadd15db", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "watches": {
+                    "apiName": "watches", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/r18.json?expiresAt=1496294423937&sig=afceb091f633d00c3cd6945351840c9d", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/r18.json?expiresAt=1496294423937&sig=04640b8012d846994fec04509ad0c6c9", 
+                            "put": null, 
+                            "resourceName": "watches", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/r18.json?expiresAt=1496294423937&sig=afceb091f633d00c3cd6945351840c9d", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/r18.json?expiresAt=1496294423937&sig=f638ac3a055a831a462746aac50b302f", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "watches", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/r18.json?expiresAt=1496294423937&sig=f638ac3a055a831a462746aac50b302f", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "music_movies_posters": {
+                    "apiName": "music_movies_posters", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/4kt.json?expiresAt=1496294423946&sig=3b6c5a5dfe87dae5ce91da7534f2eb5c", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/4kt.json?expiresAt=1496294423946&sig=8d4b263f9570ac2e7fecb1494892da08", 
+                            "put": null, 
+                            "resourceName": "music_movies_posters", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/4kt.json?expiresAt=1496294423946&sig=3b6c5a5dfe87dae5ce91da7534f2eb5c", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/4kt.json?expiresAt=1496294423946&sig=4aa2a7ad126c25eb8d4e7c1dfaa43840", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "music_movies_posters", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/4kt.json?expiresAt=1496294423946&sig=4aa2a7ad126c25eb8d4e7c1dfaa43840", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "air_conditioners": {
+                    "apiName": "air_conditioners", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/j9e-abm-c54.json?expiresAt=1496294423946&sig=2136d2637e26c5d75efd33f9d1910f5d", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/j9e-abm-c54.json?expiresAt=1496294423946&sig=66e9d556f9db72c56c957611fab8f979", 
+                            "put": null, 
+                            "resourceName": "air_conditioners", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/j9e-abm-c54.json?expiresAt=1496294423946&sig=2136d2637e26c5d75efd33f9d1910f5d", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/j9e-abm-c54.json?expiresAt=1496294423946&sig=83ded05ec219b33fa259b21cd3611e79", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "air_conditioners", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/j9e-abm-c54.json?expiresAt=1496294423946&sig=83ded05ec219b33fa259b21cd3611e79", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "mens_clothing": {
+                    "apiName": "mens_clothing", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/2oq-s9b.json?expiresAt=1496294423942&sig=6f8ee7b9747c88c19c1791f123c62b43", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/2oq-s9b.json?expiresAt=1496294423942&sig=2c50b464a6cc53d8318d16711b9961b4", 
+                            "put": null, 
+                            "resourceName": "mens_clothing", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/2oq-s9b.json?expiresAt=1496294423942&sig=6f8ee7b9747c88c19c1791f123c62b43", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/2oq-s9b.json?expiresAt=1496294423942&sig=ab5a0960def987c72abf01ab0bae986a", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "mens_clothing", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/2oq-s9b.json?expiresAt=1496294423942&sig=ab5a0960def987c72abf01ab0bae986a", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "mens_footwear": {
+                    "apiName": "mens_footwear", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/osp-cil.json?expiresAt=1496294423942&sig=e82b1dea6807c5b6684dbbfff9bd7a9d", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/osp-cil.json?expiresAt=1496294423942&sig=72276d06f4fbe720717c46f47e81fb36", 
+                            "put": null, 
+                            "resourceName": "mens_footwear", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/osp-cil.json?expiresAt=1496294423942&sig=e82b1dea6807c5b6684dbbfff9bd7a9d", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/osp-cil.json?expiresAt=1496294423942&sig=b237c525ced94e7cdc09c35630abd464", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "mens_footwear", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/osp-cil.json?expiresAt=1496294423942&sig=b237c525ced94e7cdc09c35630abd464", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "tv_video_accessories": {
+                    "apiName": "tv_video_accessories", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/6bo-ul6.json?expiresAt=1496294423943&sig=060b21aaca53909159d1dbddb7a6fd71", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/6bo-ul6.json?expiresAt=1496294423943&sig=c539e2a58d88128db199be464d0fdc5c", 
+                            "put": null, 
+                            "resourceName": "tv_video_accessories", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/6bo-ul6.json?expiresAt=1496294423943&sig=060b21aaca53909159d1dbddb7a6fd71", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/6bo-ul6.json?expiresAt=1496294423943&sig=ed8049ed9fea6ff22c325effdf46637e", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "tv_video_accessories", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/6bo-ul6.json?expiresAt=1496294423943&sig=ed8049ed9fea6ff22c325effdf46637e", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "home_entertainment": {
+                    "apiName": "home_entertainment", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/ckf.json?expiresAt=1496294423943&sig=221d974f8e41e5df539a5b01039bb112", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/ckf.json?expiresAt=1496294423944&sig=ba7ea9d5b1cea2328d34fc0e4c8e074b", 
+                            "put": null, 
+                            "resourceName": "home_entertainment", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/ckf.json?expiresAt=1496294423944&sig=d0b8165cfa7ae3c31a8047765ff37f74", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/ckf.json?expiresAt=1496294423943&sig=48e1151ff1aefe46d7d02df2fb3b6107", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "home_entertainment", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/ckf.json?expiresAt=1496294423943&sig=48e1151ff1aefe46d7d02df2fb3b6107", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "kids_clothing": {
+                    "apiName": "kids_clothing", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/2oq-mpf.json?expiresAt=1496294423941&sig=d7260892bf133f98626959d3da3f0a66", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/2oq-mpf.json?expiresAt=1496294423941&sig=a092b21fc9167548f164d8bce510a072", 
+                            "put": null, 
+                            "resourceName": "kids_clothing", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/2oq-mpf.json?expiresAt=1496294423941&sig=d7260892bf133f98626959d3da3f0a66", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/2oq-mpf.json?expiresAt=1496294423941&sig=290dc3cc36f1c8ca2cf9fe620da4feb0", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "kids_clothing", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/2oq-mpf.json?expiresAt=1496294423941&sig=290dc3cc36f1c8ca2cf9fe620da4feb0", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "e_learning": {
+                    "apiName": "e_learning", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/xfw.json?expiresAt=1496294423945&sig=bbed1be148cd0d71f2c6632d53d0b2d8", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/xfw.json?expiresAt=1496294423945&sig=5415292a7842712ecd27796b4e056c17", 
+                            "put": null, 
+                            "resourceName": "e_learning", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/xfw.json?expiresAt=1496294423945&sig=bbed1be148cd0d71f2c6632d53d0b2d8", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/xfw.json?expiresAt=1496294423945&sig=e9c0f445c114db522dec3ef07f492d9c", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "e_learning", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/xfw.json?expiresAt=1496294423945&sig=e9c0f445c114db522dec3ef07f492d9c", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "jewellery": {
+                    "apiName": "jewellery", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/mcr.json?expiresAt=1496294423944&sig=caac88ae2b43c5a5cf70bb28b8a1c175", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/mcr.json?expiresAt=1496294423945&sig=51df75eb45b1b595f22f6fcc05cb03f6", 
+                            "put": null, 
+                            "resourceName": "jewellery", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/mcr.json?expiresAt=1496294423944&sig=caac88ae2b43c5a5cf70bb28b8a1c175", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/mcr.json?expiresAt=1496294423944&sig=8ffccdc9e0d2a1866eefd0d49acfeaf4", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "jewellery", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/mcr.json?expiresAt=1496294423944&sig=8ffccdc9e0d2a1866eefd0d49acfeaf4", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "computer_peripherals": {
+                    "apiName": "computer_peripherals", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/6bo-tia.json?expiresAt=1496294423938&sig=77fdad3b89e23132df03763f4af60872", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/6bo-tia.json?expiresAt=1496294423938&sig=f59691b469cfe6c63a516477f4659caa", 
+                            "put": null, 
+                            "resourceName": "computer_peripherals", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/6bo-tia.json?expiresAt=1496294423938&sig=77fdad3b89e23132df03763f4af60872", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/6bo-tia.json?expiresAt=1496294423938&sig=03d8ac8927c4f3177f28a06e532a1945", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "computer_peripherals", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/6bo-tia.json?expiresAt=1496294423938&sig=03d8ac8927c4f3177f28a06e532a1945", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "landline_phones": {
+                    "apiName": "landline_phones", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/tyy-n0e.json?expiresAt=1496294423940&sig=9d230cef890989e010a31b282a77efcf", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/tyy-n0e.json?expiresAt=1496294423940&sig=fe7fd9cf97da90de1d9d407493822bdd", 
+                            "put": null, 
+                            "resourceName": "landline_phones", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/tyy-n0e.json?expiresAt=1496294423940&sig=9d230cef890989e010a31b282a77efcf", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/tyy-n0e.json?expiresAt=1496294423940&sig=1ecb42a5ba317868beae978c18c874e2", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "landline_phones", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/tyy-n0e.json?expiresAt=1496294423940&sig=1ecb42a5ba317868beae978c18c874e2", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "laptop_accessories": {
+                    "apiName": "laptop_accessories", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/6bo-ai3.json?expiresAt=1496294423939&sig=e97a8d0e3484cf0fbbbbb3b37409d507", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/6bo-ai3.json?expiresAt=1496294423939&sig=8830b15dc5d992f8545b99c7667280b4", 
+                            "put": null, 
+                            "resourceName": "laptop_accessories", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/6bo-ai3.json?expiresAt=1496294423939&sig=e97a8d0e3484cf0fbbbbb3b37409d507", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/6bo-ai3.json?expiresAt=1496294423939&sig=a43ed7e078c48229ce63808aaff16134", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "laptop_accessories", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/6bo-ai3.json?expiresAt=1496294423939&sig=a43ed7e078c48229ce63808aaff16134", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "cameras": {
+                    "apiName": "cameras", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/jek-p31.json?expiresAt=1496294423937&sig=c7abc16e72a7314b13a7a3597db30ecc", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/jek-p31.json?expiresAt=1496294423937&sig=4e3677b8414fad78a3e149d07be80b9d", 
+                            "put": null, 
+                            "resourceName": "cameras", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/jek-p31.json?expiresAt=1496294423937&sig=c7abc16e72a7314b13a7a3597db30ecc", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/jek-p31.json?expiresAt=1496294423937&sig=bd1d57d3f9cd781ebd2275444b92d7b1", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "cameras", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/jek-p31.json?expiresAt=1496294423937&sig=bd1d57d3f9cd781ebd2275444b92d7b1", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "eyewear": {
+                    "apiName": "eyewear", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/u73.json?expiresAt=1496294423948&sig=4aee77f3cf60733dde0bdf5b92b43270", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/u73.json?expiresAt=1496294423949&sig=f3d1a3045a8b2ed8aa4290f872bc3e8e", 
+                            "put": null, 
+                            "resourceName": "eyewear", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/u73.json?expiresAt=1496294423949&sig=6ff3855f926c594b9c5625267a05636c", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/u73.json?expiresAt=1496294423948&sig=867bb9c601f29112667aa7e9f07c505f", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "eyewear", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/u73.json?expiresAt=1496294423948&sig=867bb9c601f29112667aa7e9f07c505f", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "tablets": {
+                    "apiName": "tablets", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/tyy-hry.json?expiresAt=1496294423940&sig=c509076cc4cdd5ea5c2cfbb874730f68", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/tyy-hry.json?expiresAt=1496294423940&sig=e55b2d9fa85cb564db41d0bd0a18689a", 
+                            "put": null, 
+                            "resourceName": "tablets", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/tyy-hry.json?expiresAt=1496294423940&sig=c509076cc4cdd5ea5c2cfbb874730f68", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/tyy-hry.json?expiresAt=1496294423940&sig=2ad24d3cbaf35099440ab9a38c26a283", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "tablets", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/tyy-hry.json?expiresAt=1496294423940&sig=2ad24d3cbaf35099440ab9a38c26a283", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "tablet_accessories": {
+                    "apiName": "tablet_accessories", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/tyy-jgu.json?expiresAt=1496294423940&sig=39dba5faecaabfe7d24f19e7918165f1", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/tyy-jgu.json?expiresAt=1496294423940&sig=7ab19bd0dca75f354541ea255505d685", 
+                            "put": null, 
+                            "resourceName": "tablet_accessories", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/tyy-jgu.json?expiresAt=1496294423940&sig=39dba5faecaabfe7d24f19e7918165f1", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/tyy-jgu.json?expiresAt=1496294423940&sig=aa235176d97df0b69a52110eb886f278", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "tablet_accessories", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/tyy-jgu.json?expiresAt=1496294423940&sig=aa235176d97df0b69a52110eb886f278", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "baby_care": {
+                    "apiName": "baby_care", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/kyh.json?expiresAt=1496294423936&sig=1be5bdd79e5853a18912e90bb83c0b39", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/kyh.json?expiresAt=1496294423936&sig=fce9598483953ad5f803b6c2e4e939a5", 
+                            "put": null, 
+                            "resourceName": "baby_care", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/kyh.json?expiresAt=1496294423936&sig=1be5bdd79e5853a18912e90bb83c0b39", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/kyh.json?expiresAt=1496294423935&sig=fba7218255299641cc00edb32b5fb1f9", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "baby_care", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/kyh.json?expiresAt=1496294423936&sig=9548f0b740ecbf881e319bf0c85cae12", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "grooming_beauty_wellness": {
+                    "apiName": "grooming_beauty_wellness", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/t06.json?expiresAt=1496294423936&sig=0beefda4c3fc02b0fd7bdfc3dbe19c61", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/t06.json?expiresAt=1496294423936&sig=280a0063dee16fbc5f56169c345c5e51", 
+                            "put": null, 
+                            "resourceName": "grooming_beauty_wellness", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/t06.json?expiresAt=1496294423936&sig=0beefda4c3fc02b0fd7bdfc3dbe19c61", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/t06.json?expiresAt=1496294423936&sig=e78be8725d6fac954c6387f3123d20dd", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "grooming_beauty_wellness", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/t06.json?expiresAt=1496294423936&sig=e78be8725d6fac954c6387f3123d20dd", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "home_decor_and_festive_needs": {
+                    "apiName": "home_decor_and_festive_needs", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/1m7.json?expiresAt=1496294423945&sig=be444dfeedf8a503ea40c4e7e623c2d5", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/1m7.json?expiresAt=1496294423945&sig=4a0f3951e6d64bf4f93de4a48ce74acf", 
+                            "put": null, 
+                            "resourceName": "home_decor_and_festive_needs", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/1m7.json?expiresAt=1496294423945&sig=be444dfeedf8a503ea40c4e7e623c2d5", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/1m7.json?expiresAt=1496294423945&sig=970f2c9e3850159a5034d78860e7c828", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "home_decor_and_festive_needs", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/1m7.json?expiresAt=1496294423945&sig=970f2c9e3850159a5034d78860e7c828", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "home_appliances": {
+                    "apiName": "home_appliances", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/j9e-abm.json?expiresAt=1496294423941&sig=5e82d70754b7142b878eff7cf9fc8790", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/j9e-abm.json?expiresAt=1496294423941&sig=aa9a861a42daf423865f5b5c04bc4314", 
+                            "put": null, 
+                            "resourceName": "home_appliances", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/j9e-abm.json?expiresAt=1496294423941&sig=5e82d70754b7142b878eff7cf9fc8790", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/j9e-abm.json?expiresAt=1496294423940&sig=f339519240ea59ad4762e9b9806d07e3", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "home_appliances", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/j9e-abm.json?expiresAt=1496294423940&sig=f339519240ea59ad4762e9b9806d07e3", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "kids_footwear": {
+                    "apiName": "kids_footwear", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/osp-mba.json?expiresAt=1496294423941&sig=750b6b431a679a3115c5187ab0eaf8d4", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/osp-mba.json?expiresAt=1496294423941&sig=ec456a1fc3f1bad469cd8caef30f0a94", 
+                            "put": null, 
+                            "resourceName": "kids_footwear", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/osp-mba.json?expiresAt=1496294423941&sig=750b6b431a679a3115c5187ab0eaf8d4", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/osp-mba.json?expiresAt=1496294423941&sig=dd7922af093b43dd0ec6f5f79a4945a2", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "kids_footwear", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/osp-mba.json?expiresAt=1496294423941&sig=dd7922af093b43dd0ec6f5f79a4945a2", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "mobile_accessories": {
+                    "apiName": "mobile_accessories", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/tyy-4mr.json?expiresAt=1496294423940&sig=72e91096f413b6a29dbc2bf8f0c9fee8", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/tyy-4mr.json?expiresAt=1496294423940&sig=23cef6ca33a04da6d9e1c8a4ecbf0acb", 
+                            "put": null, 
+                            "resourceName": "mobile_accessories", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/tyy-4mr.json?expiresAt=1496294423940&sig=72e91096f413b6a29dbc2bf8f0c9fee8", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/tyy-4mr.json?expiresAt=1496294423940&sig=a05d1deaf9d2cc9fbe0141cd71db4a44", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "mobile_accessories", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/tyy-4mr.json?expiresAt=1496294423940&sig=a05d1deaf9d2cc9fbe0141cd71db4a44", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "televisions": {
+                    "apiName": "televisions", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/ckf-czl.json?expiresAt=1496294423946&sig=66f01a65a0074f71bd6000729bb0bc5c", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/ckf-czl.json?expiresAt=1496294423946&sig=4b79729d5765f197625869627c9e938d", 
+                            "put": null, 
+                            "resourceName": "televisions", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/ckf-czl.json?expiresAt=1496294423946&sig=66f01a65a0074f71bd6000729bb0bc5c", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/ckf-czl.json?expiresAt=1496294423945&sig=d609fc3d56a9ad77f0e3cf2b7243da2d", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "televisions", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/ckf-czl.json?expiresAt=1496294423945&sig=d609fc3d56a9ad77f0e3cf2b7243da2d", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "audio_players": {
+                    "apiName": "audio_players", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/6bo-ord.json?expiresAt=1496294423943&sig=162fcc300f021a7f4c816e886d436f6e", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/6bo-ord.json?expiresAt=1496294423943&sig=bbbfc500c03a90e1706c28202f98814e", 
+                            "put": null, 
+                            "resourceName": "audio_players", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/6bo-ord.json?expiresAt=1496294423943&sig=162fcc300f021a7f4c816e886d436f6e", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/6bo-ord.json?expiresAt=1496294423943&sig=24ac5df9666f099c265147879e19c790", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "audio_players", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/6bo-ord.json?expiresAt=1496294423943&sig=24ac5df9666f099c265147879e19c790", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "sunglasses": {
+                    "apiName": "sunglasses", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/26x.json?expiresAt=1496294423937&sig=197956b5bc89397f5a0893764ae3a957", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/26x.json?expiresAt=1496294423937&sig=19a7e2461e7f5c864cd3ea65be4d84aa", 
+                            "put": null, 
+                            "resourceName": "sunglasses", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/26x.json?expiresAt=1496294423937&sig=197956b5bc89397f5a0893764ae3a957", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/26x.json?expiresAt=1496294423937&sig=3849900b262fdbd84e4c9765f807c151", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "sunglasses", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/26x.json?expiresAt=1496294423937&sig=3849900b262fdbd84e4c9765f807c151", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "luggage_travel": {
+                    "apiName": "luggage_travel", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/reh-plk.json?expiresAt=1496294423945&sig=c9b3badd6657528ef1bee805edadf551", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/reh-plk.json?expiresAt=1496294423945&sig=fa2301a73edce0f0ce2cf042a86b387e", 
+                            "put": null, 
+                            "resourceName": "luggage_travel", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/reh-plk.json?expiresAt=1496294423945&sig=c9b3badd6657528ef1bee805edadf551", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/reh-plk.json?expiresAt=1496294423945&sig=2501efa68e560c943767939f9a9cdc4c", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "luggage_travel", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/reh-plk.json?expiresAt=1496294423945&sig=2501efa68e560c943767939f9a9cdc4c", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "food_nutrition": {
+                    "apiName": "food_nutrition", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/7jv.json?expiresAt=1496294423947&sig=f60bdd7191878e37bad2884dff7668dd", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/7jv.json?expiresAt=1496294423948&sig=6235c1482c308506ff4ee8f5c53cef9a", 
+                            "put": null, 
+                            "resourceName": "food_nutrition", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/7jv.json?expiresAt=1496294423947&sig=f60bdd7191878e37bad2884dff7668dd", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/7jv.json?expiresAt=1496294423947&sig=b1c404c15faa3f5f5a0637b903506d83", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "food_nutrition", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/7jv.json?expiresAt=1496294423947&sig=b1c404c15faa3f5f5a0637b903506d83", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "automotive": {
+                    "apiName": "automotive", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/0hx.json?expiresAt=1496294423947&sig=a82b0d80962e56e7f7a2771c81a9d775", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/0hx.json?expiresAt=1496294423947&sig=32c049fb27c8532dabfd1b70fd87bb2f", 
+                            "put": null, 
+                            "resourceName": "automotive", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/0hx.json?expiresAt=1496294423947&sig=a82b0d80962e56e7f7a2771c81a9d775", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/0hx.json?expiresAt=1496294423947&sig=19f08d4f93b6afa622fe764bad846862", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "automotive", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/0hx.json?expiresAt=1496294423947&sig=19f08d4f93b6afa622fe764bad846862", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "air_coolers": {
+                    "apiName": "air_coolers", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/j9e-abm-52j.json?expiresAt=1496294423946&sig=c596760bcc0d711567ea91df114048de", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/j9e-abm-52j.json?expiresAt=1496294423946&sig=f9a9bd682c4b142d3d71c5d1ce36d8be", 
+                            "put": null, 
+                            "resourceName": "air_coolers", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/j9e-abm-52j.json?expiresAt=1496294423946&sig=c596760bcc0d711567ea91df114048de", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/j9e-abm-52j.json?expiresAt=1496294423946&sig=e8e0d14aac26dd4ab2944842578c660d", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "air_coolers", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/j9e-abm-52j.json?expiresAt=1496294423946&sig=e8e0d14aac26dd4ab2944842578c660d", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "laptops": {
+                    "apiName": "laptops", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/6bo-b5g.json?expiresAt=1496294423939&sig=27b807b16e7d9b9dc697789df3614402", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/6bo-b5g.json?expiresAt=1496294423939&sig=f4f6b81f68d256f0710dde1a68cf00ae", 
+                            "put": null, 
+                            "resourceName": "laptops", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/6bo-b5g.json?expiresAt=1496294423939&sig=27b807b16e7d9b9dc697789df3614402", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/6bo-b5g.json?expiresAt=1496294423939&sig=37e34c212749dfb169c74177b5ca82d6", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "laptops", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/6bo-b5g.json?expiresAt=1496294423939&sig=37e34c212749dfb169c74177b5ca82d6", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "womens_clothing": {
+                    "apiName": "womens_clothing", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/2oq-c1r.json?expiresAt=1496294423942&sig=34cce987d122a4bb0fd7fba0adf73754", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/2oq-c1r.json?expiresAt=1496294423942&sig=ecdd8bc9e0f4a056fb1a06523bf1a50e", 
+                            "put": null, 
+                            "resourceName": "womens_clothing", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/2oq-c1r.json?expiresAt=1496294423942&sig=34cce987d122a4bb0fd7fba0adf73754", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/2oq-c1r.json?expiresAt=1496294423942&sig=6fae8cbefd9b131f26f396083c0849f8", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "womens_clothing", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/2oq-c1r.json?expiresAt=1496294423942&sig=6fae8cbefd9b131f26f396083c0849f8", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "sports_fitness": {
+                    "apiName": "sports_fitness", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/dep.json?expiresAt=1496294423944&sig=db56a920bdf99d65d202416e9fb8ce0c", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/dep.json?expiresAt=1496294423944&sig=56e733f0e869b3f8014ffed859c90ae3", 
+                            "put": null, 
+                            "resourceName": "sports_fitness", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/dep.json?expiresAt=1496294423944&sig=db56a920bdf99d65d202416e9fb8ce0c", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/dep.json?expiresAt=1496294423944&sig=0dca06a03da16888d970a1f2cdea650b", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "sports_fitness", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/dep.json?expiresAt=1496294423944&sig=0dca06a03da16888d970a1f2cdea650b", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "pet_supplies": {
+                    "apiName": "pet_supplies", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/n2a.json?expiresAt=1496294423948&sig=ca138d7e781f6045ee160c9b2b892613", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/n2a.json?expiresAt=1496294423948&sig=b7da083e77cb51659cc8e6f5822b722e", 
+                            "put": null, 
+                            "resourceName": "pet_supplies", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/n2a.json?expiresAt=1496294423948&sig=ca138d7e781f6045ee160c9b2b892613", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/n2a.json?expiresAt=1496294423948&sig=03d204fb35a57a55a2686e3f253232c1", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "pet_supplies", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/n2a.json?expiresAt=1496294423948&sig=03d204fb35a57a55a2686e3f253232c1", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "computer_storage": {
+                    "apiName": "computer_storage", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/6bo-jdy.json?expiresAt=1496294423938&sig=639203b3b4c76f4361cb13fae38a6532", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/6bo-jdy.json?expiresAt=1496294423939&sig=f578982b77c73bb9ccc3e78bc6f12804", 
+                            "put": null, 
+                            "resourceName": "computer_storage", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/6bo-jdy.json?expiresAt=1496294423938&sig=639203b3b4c76f4361cb13fae38a6532", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/6bo-jdy.json?expiresAt=1496294423938&sig=f1f4ab51ef06d88ae7a437ecc402a058", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "computer_storage", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/6bo-jdy.json?expiresAt=1496294423938&sig=f1f4ab51ef06d88ae7a437ecc402a058", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "video_players": {
+                    "apiName": "video_players", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/6bo-xdz.json?expiresAt=1496294423943&sig=e835a3c7b2a592ff83de839a4c1f3c99", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/6bo-xdz.json?expiresAt=1496294423943&sig=695f6754b94c371632b2764122cc4e9c", 
+                            "put": null, 
+                            "resourceName": "video_players", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/6bo-xdz.json?expiresAt=1496294423943&sig=e835a3c7b2a592ff83de839a4c1f3c99", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/6bo-xdz.json?expiresAt=1496294423943&sig=13a62f9f05512e1519817c2f2f52977a", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "video_players", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/6bo-xdz.json?expiresAt=1496294423943&sig=13a62f9f05512e1519817c2f2f52977a", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "home_furnishing": {
+                    "apiName": "home_furnishing", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/vdm.json?expiresAt=1496294423941&sig=316ca3e82f6f5dc31b3e5d19d8074d29", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/vdm.json?expiresAt=1496294423941&sig=fe2632dd9bdf64dd0d73c24e8cf491e2", 
+                            "put": null, 
+                            "resourceName": "home_furnishing", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/vdm.json?expiresAt=1496294423941&sig=316ca3e82f6f5dc31b3e5d19d8074d29", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/vdm.json?expiresAt=1496294423941&sig=0e7d7e169c21ccf07901cf34e5aeac3d", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "home_furnishing", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/vdm.json?expiresAt=1496294423941&sig=0e7d7e169c21ccf07901cf34e5aeac3d", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "refrigerator": {
+                    "apiName": "refrigerator", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/j9e-abm-hzg.json?expiresAt=1496294423947&sig=8d155e4a1c3b6bc213364acd37527831", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/j9e-abm-hzg.json?expiresAt=1496294423947&sig=49114ef79ede66c3f152b3555d5342ca", 
+                            "put": null, 
+                            "resourceName": "refrigerator", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/j9e-abm-hzg.json?expiresAt=1496294423947&sig=8d155e4a1c3b6bc213364acd37527831", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/j9e-abm-hzg.json?expiresAt=1496294423947&sig=dd6f4e4de67ddc2fe539f2d5f298d4a6", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "refrigerator", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/j9e-abm-hzg.json?expiresAt=1496294423947&sig=dd6f4e4de67ddc2fe539f2d5f298d4a6", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "furniture": {
+                    "apiName": "furniture", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/anx.json?expiresAt=1496294423948&sig=8adb42175ced7f8ad6509843ac5b2a41", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/anx.json?expiresAt=1496294423948&sig=92cb9aa6cdbadeefdc96d6fe6503f0f9", 
+                            "put": null, 
+                            "resourceName": "furniture", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/anx.json?expiresAt=1496294423948&sig=8adb42175ced7f8ad6509843ac5b2a41", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/anx.json?expiresAt=1496294423948&sig=58a0de99d820742c51e42bdc0dcac3f0", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "furniture", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/anx.json?expiresAt=1496294423948&sig=58a0de99d820742c51e42bdc0dcac3f0", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "kitchen_appliances": {
+                    "apiName": "kitchen_appliances", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/j9e-m38.json?expiresAt=1496294423941&sig=a4440abb15f5fa9ba87a7cf27bde3f83", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/j9e-m38.json?expiresAt=1496294423942&sig=15ad9311e62503667dabcb53abd0089e", 
+                            "put": null, 
+                            "resourceName": "kitchen_appliances", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/j9e-m38.json?expiresAt=1496294423942&sig=6fba9bd848092b1192a2328c7df8f923", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/j9e-m38.json?expiresAt=1496294423941&sig=cdcedeb8bdfc0be4a5a7f956bcf1d6a2", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "kitchen_appliances", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/j9e-m38.json?expiresAt=1496294423941&sig=cdcedeb8bdfc0be4a5a7f956bcf1d6a2", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "bags_wallets_belts": {
+                    "apiName": "bags_wallets_belts", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/reh.json?expiresAt=1496294423936&sig=2e262825b8b86e9a3d5bdd28beac1abf", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/reh.json?expiresAt=1496294423936&sig=2fbb26456d57e677c8602c468ad8bbaf", 
+                            "put": null, 
+                            "resourceName": "bags_wallets_belts", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/reh.json?expiresAt=1496294423936&sig=2e262825b8b86e9a3d5bdd28beac1abf", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/reh.json?expiresAt=1496294423936&sig=d45d349a2a25cf996eebf495a73d43ec", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "bags_wallets_belts", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/reh.json?expiresAt=1496294423936&sig=d45d349a2a25cf996eebf495a73d43ec", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "wearable_smart_devices": {
+                    "apiName": "wearable_smart_devices", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/ajy.json?expiresAt=1496294423948&sig=c54dfcd4054ed9cb42b5ce1f949b1ff8", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/ajy.json?expiresAt=1496294423948&sig=43fe5d6de4fa0c52eb6147f4d43a5fc0", 
+                            "put": null, 
+                            "resourceName": "wearable_smart_devices", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/ajy.json?expiresAt=1496294423948&sig=c54dfcd4054ed9cb42b5ce1f949b1ff8", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/ajy.json?expiresAt=1496294423948&sig=1466b53b81e894e99d8c0f76841c7755", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "wearable_smart_devices", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/ajy.json?expiresAt=1496294423948&sig=1466b53b81e894e99d8c0f76841c7755", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "stationery_office_supplies": {
+                    "apiName": "stationery_office_supplies", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/dgv.json?expiresAt=1496294423944&sig=2c0ce7e35c0c4144ed77aa198afa587b", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/dgv.json?expiresAt=1496294423944&sig=e222c7809a2c2898f40457d6015fa7f1", 
+                            "put": null, 
+                            "resourceName": "stationery_office_supplies", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/dgv.json?expiresAt=1496294423944&sig=2c0ce7e35c0c4144ed77aa198afa587b", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/dgv.json?expiresAt=1496294423944&sig=aadb0e6e5a09b1631276ce2896e45d0c", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "stationery_office_supplies", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/dgv.json?expiresAt=1496294423944&sig=aadb0e6e5a09b1631276ce2896e45d0c", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "mobiles": {
+                    "apiName": "mobiles", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/tyy-4io.json?expiresAt=1496294423939&sig=d9504aea17aeff4cb1f90ece5fdb7313", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/tyy-4io.json?expiresAt=1496294423939&sig=e8ade7cced3496b0ed061a2a2d7b8354", 
+                            "put": null, 
+                            "resourceName": "mobiles", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/tyy-4io.json?expiresAt=1496294423939&sig=d9504aea17aeff4cb1f90ece5fdb7313", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/tyy-4io.json?expiresAt=1496294423939&sig=eb0016ffde415c3fd9a40e4537d958ce", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "mobiles", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/tyy-4io.json?expiresAt=1496294423939&sig=eb0016ffde415c3fd9a40e4537d958ce", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "washing_machine": {
+                    "apiName": "washing_machine", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/j9e-abm-8qx.json?expiresAt=1496294423947&sig=9edf07478b642579c1cf67af3112945f", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/j9e-abm-8qx.json?expiresAt=1496294423947&sig=7836e9f045699cec10fbf5284dc117c0", 
+                            "put": null, 
+                            "resourceName": "washing_machine", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/j9e-abm-8qx.json?expiresAt=1496294423947&sig=9edf07478b642579c1cf67af3112945f", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/j9e-abm-8qx.json?expiresAt=1496294423947&sig=a5cfe01238e513dac7797b91ed9ccdd5", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "washing_machine", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/j9e-abm-8qx.json?expiresAt=1496294423947&sig=a5cfe01238e513dac7797b91ed9ccdd5", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "network_components": {
+                    "apiName": "network_components", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/6bo-70k.json?expiresAt=1496294423938&sig=8ca9bb2ab300c7a294eaca3f0b8a57d8", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/6bo-70k.json?expiresAt=1496294423938&sig=16031faaec1c2071c45c3676b2b55164", 
+                            "put": null, 
+                            "resourceName": "network_components", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/6bo-70k.json?expiresAt=1496294423938&sig=8ca9bb2ab300c7a294eaca3f0b8a57d8", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/6bo-70k.json?expiresAt=1496294423938&sig=da8e7e655a265330bded73168cd911d7", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "network_components", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/6bo-70k.json?expiresAt=1496294423938&sig=da8e7e655a265330bded73168cd911d7", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "camera_accessories": {
+                    "apiName": "camera_accessories", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/jek-6l2.json?expiresAt=1496294423938&sig=ab2b17f069f00100a0f542224117fa1c", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/jek-6l2.json?expiresAt=1496294423938&sig=62c35fb31398e2616be7d94dc5aba3ab", 
+                            "put": null, 
+                            "resourceName": "camera_accessories", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/jek-6l2.json?expiresAt=1496294423938&sig=ab2b17f069f00100a0f542224117fa1c", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/jek-6l2.json?expiresAt=1496294423937&sig=b277295348052abb95ed108baa5ef3b3", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "camera_accessories", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/jek-6l2.json?expiresAt=1496294423937&sig=b277295348052abb95ed108baa5ef3b3", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "household_supplies": {
+                    "apiName": "household_supplies", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/7ij.json?expiresAt=1496294423948&sig=5bd3277cc95c048c2b64e3c4ad59ce02", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/7ij.json?expiresAt=1496294423948&sig=bfa71d5f3d8b7180e3933d773a52ee78", 
+                            "put": null, 
+                            "resourceName": "household_supplies", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/7ij.json?expiresAt=1496294423948&sig=5bd3277cc95c048c2b64e3c4ad59ce02", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/7ij.json?expiresAt=1496294423948&sig=e855d0bc29362675e394cad9e78215d0", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "household_supplies", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/7ij.json?expiresAt=1496294423948&sig=e855d0bc29362675e394cad9e78215d0", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "home_and_kitchen_needs": {
+                    "apiName": "home_and_kitchen_needs", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/r4l.json?expiresAt=1496294423945&sig=c74933a0ced7a3fbffde3a618eb85bd3", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/r4l.json?expiresAt=1496294423945&sig=3999b6c7001ccf3f8a41fbc4e7f2bc76", 
+                            "put": null, 
+                            "resourceName": "home_and_kitchen_needs", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/r4l.json?expiresAt=1496294423945&sig=c74933a0ced7a3fbffde3a618eb85bd3", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/r4l.json?expiresAt=1496294423945&sig=9642cd288dc20a837d1574d48401ecaf", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "home_and_kitchen_needs", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/r4l.json?expiresAt=1496294423945&sig=9642cd288dc20a837d1574d48401ecaf", 
+                            "delete": null
+                        }
+                    }
+                }, 
+                "software": {
+                    "apiName": "software", 
+                    "availableVariants": {
+                        "v1.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/1.0/feeds/dealsmera/category/6bo-5hp.json?expiresAt=1496294423944&sig=2b0610ce5ca966755bf2752eb0c23695", 
+                            "top": "https://affiliate-api.flipkart.net/affiliate/1.0/topFeeds/dealsmera/category/6bo-5hp.json?expiresAt=1496294423944&sig=61bb244c1894c8aeda6b61a40cac0d02", 
+                            "put": null, 
+                            "resourceName": "software", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/1.0/deltaFeeds/dealsmera/category/6bo-5hp.json?expiresAt=1496294423944&sig=2b0610ce5ca966755bf2752eb0c23695", 
+                            "delete": null
+                        }, 
+                        "v0.1.0": {
+                            "get": "https://affiliate-api.flipkart.net/affiliate/feeds/dealsmera/category/6bo-5hp.json?expiresAt=1496294423944&sig=1afb5708cb7ce3eef0b9864b8e8afd85", 
+                            "top": null, 
+                            "put": null, 
+                            "resourceName": "software", 
+                            "post": null, 
+                            "deltaGet": "https://affiliate-api.flipkart.net/affiliate/deltaFeeds/dealsmera/category/6bo-5hp.json?expiresAt=1496294423944&sig=1afb5708cb7ce3eef0b9864b8e8afd85", 
+                            "delete": null
+                        }
+                    }
+                }
+            }, 
+            "name": "affiliate"
+        }
+    }, 
+    "description": "This directory contains links for Product Feed API and Delta Feed API of all categories with all the versions available", 
+    "title": "Flipkart Affiliate API Directory"
+}
