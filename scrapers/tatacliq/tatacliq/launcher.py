@@ -1,8 +1,6 @@
-import scrapy
+import scrapy, os
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
-import logging
-from scrapy.utils.log import configure_logging
 from spiders.tatacliq_spider1 import MySpider1
 from spiders.tatacliq_spider2 import MySpider2
 from spiders.tatacliq_spider3 import MySpider3
@@ -17,13 +15,9 @@ from spiders.tatacliq_spider11 import MySpider11
 from spiders.tatacliq_spider12 import MySpider12
 from spiders.tatacliq_spider13 import MySpider13
 
-configure_logging(install_root_handler=False)
-logging.basicConfig(
-    filename = 'tatacliq.log',
-    filemode = 'w',
-    format = '%(levelname)s: %(message)s',
-    level = logging.ERROR
-)
+log_file = '/'.join(os.path.abspath('').split('/')[:-3]) + '/logs/tatacliq.log'
+if os.path.exists(log_file):
+    os.remove(log_file)
 
 process = CrawlerProcess(get_project_settings())
 process.crawl(MySpider1)

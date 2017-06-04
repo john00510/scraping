@@ -27,6 +27,7 @@ def tatacliq_items_parser(item):
             discount = ''
         return discount
 
+
     price = price(item)
     offer_price = offer_price(item, price)
     discount = discount(item)
@@ -67,6 +68,13 @@ def tatacliq_item_parser(response, fh, coll):
             offer = ''
         return offer
 
+    def brand_func(response):
+        try:
+            brand = response.xpath('.//h3[@itemprop="brand"]/span/text()').extract()[0]
+        except:
+            brand = ''
+        return brand
+
     d = {}
     d['id'] = ''
     d['name'] = response.xpath('.//h1[@class="product-name"]/text()').extract()[0]
@@ -85,8 +93,8 @@ def tatacliq_item_parser(response, fh, coll):
     d['deal_notes'] = ''
     d['meta_title'] = ''
     d['meta_key'] = ''
-    d['meta_des'] = d['name']
-    d['brand'] = response.xpath('.//h3[@itemprop="brand"]/span/text()').extract()[0]
+    d['meta_des'] = ''
+    d['brand'] = brand_func(response)
     d['size'] = ''
     d['size_unit'] = ''
     d['key_features'] = ''
