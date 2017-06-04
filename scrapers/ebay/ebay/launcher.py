@@ -1,7 +1,6 @@
-import scrapy
+import scrapy, os
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
-import logging
 from scrapy.utils.log import configure_logging
 from spiders.ebay_spider1 import MySpider1
 from spiders.ebay_spider2 import MySpider2
@@ -14,13 +13,9 @@ from spiders.ebay_spider8 import MySpider8
 from spiders.ebay_spider9 import MySpider9
 from spiders.ebay_spider10 import MySpider10
 
-configure_logging(install_root_handler=False)
-logging.basicConfig(
-    filename = 'ebay.log',
-    filemode = 'w',
-    format = '%(levelname)s: %(message)s',
-    level = logging.ERROR
-)
+log_file = '/'.join(os.path.abspath('').split('/')[:-3]) + '/logs/ebay.log'
+if os.path.exists(log_file):
+    os.remove(log_file)
 
 process = CrawlerProcess(get_project_settings())
 process.crawl(MySpider1)

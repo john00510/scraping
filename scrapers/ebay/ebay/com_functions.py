@@ -28,7 +28,7 @@ def csv_writer(fh, id, name, permalink, create_date, mrp,price,offer_price,disco
     name = name.replace('"', '')
     create_date = datetime.now().strftime('%d-%m-%Y %H:%M')
     meta_title = meta_title.replace('"', '')
-    meta_des = str(meta_des).replace('"', '')
+    meta_des = name
     specifications = specifications.replace('"', '')
     features = str(features).replace('"', '')
     description = description.replace('"', '')
@@ -81,7 +81,9 @@ def mongo_writer(coll, item):
     try:
         coll.insert(item)
     except Exception, e:
-        print str(e)
-
-
-
+        if 'E11000 duplicate key error' in str(e):
+            pass
+        else:
+            print str(e), '#################################################'
+            print item
+            raise e

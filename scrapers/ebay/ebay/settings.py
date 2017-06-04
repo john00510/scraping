@@ -15,6 +15,9 @@ BOT_NAME = 'ebay'
 SPIDER_MODULES = ['ebay.spiders']
 NEWSPIDER_MODULE = 'ebay.spiders'
 
+LOG_LEVEL = 'ERROR'
+LOG_FILE = '/'.join(os.path.abspath('').split('/')[:-3]) + '/logs/ebay.log'
+LOG_FORMAT = '##########%(asctime)s [%(name)s] %(levelname)s: %(message)s'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:39.0) Gecko/20100101 Firefox/39.0'

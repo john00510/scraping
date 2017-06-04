@@ -29,19 +29,22 @@ def ebay_item_parser(response, fh, category, coll):
     def features_func(response):
         d = {}
         features = response.xpath('.//h2[contains(text(), "Item specifics")]/following-sibling::table/tr')
-        d['Condition'] = features[0].xpath('./td/div/text()').extract()[0].strip().strip(':')
+        try:
+            d['Condition'] = features[0].xpath('./td/div/text()').extract()[0].strip().strip(':')
+        except:
+            d['Condition'] = ''
         try:
             d['Brand'] = features[0].xpath('./td/span/text()').extract()[0].strip()
         except:
             d['Brand'] = ''
         for feature in features[1:]:
             try:
-                d[feature.xpath('./td/text()').extract()[0].strip().strip(':')] = feature.xpath('./td/span/text()')\
+                d[feature.xpath('./td/text()').extract()[0].strip().strip(':').replace('.', '')] = feature.xpath('./td/span/text()')\
                     .extract()[0]
-                d[feature.xpath('./td/text()').extract()[2].strip().strip(':')] = feature.xpath('./td/span/text()')\
+                d[feature.xpath('./td/text()').extract()[2].strip().strip(':').replace('.', '')] = feature.xpath('./td/span/text()')\
                     .extract()[1]
             except:
-                d[feature.xpath('./td/text()').extract()[0].strip().strip(':')] = feature.xpath('./td/span/text()')\
+                d[feature.xpath('./td/text()').extract()[0].strip().strip(':').replace('.', '')] = feature.xpath('./td/span/text()')\
                     .extract()[0]
         return d
 
@@ -90,7 +93,7 @@ def ebay_item_parser(response, fh, category, coll):
     d['deal_notes'] = ''
     d['meta_title'] = d['name']
     d['meta_key'] = ''
-    d['meta_des'] = d['name']
+    d['meta_des'] = ''
     d['size'] = ''
     d['size_unit'] = ''
     d['features'] = features_func(response)
