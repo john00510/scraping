@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
 
-# Scrapy settings for shopclues project
+# Scrapy settings for ebay project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -15,6 +15,9 @@ BOT_NAME = 'shopclues'
 SPIDER_MODULES = ['shopclues.spiders']
 NEWSPIDER_MODULE = 'shopclues.spiders'
 
+LOG_LEVEL = 'ERROR'
+LOG_FILE = '/'.join(os.path.abspath('').split('/')[:-3]) + '/logs/shopclues.log'
+LOG_FORMAT = '##########%(asctime)s [%(name)s] %(levelname)s: %(message)s'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:39.0) Gecko/20100101 Firefox/39.0'
@@ -48,13 +51,13 @@ USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:39.0) Gecko/20100
 # Enable or disable spider middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'shopclues.middlewares.ShopcluesSpiderMiddleware': 543,
+#    'ebay.middlewares.EbaySpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
-#    'shopclues.middlewares.MyCustomDownloaderMiddleware': 543,
+#    'ebay.middlewares.MyCustomDownloaderMiddleware': 543,
     'scrapy.downloadermiddlewares.retry.RetryMiddleware': 90,
     'scrapy_proxies.RandomProxy': 100,
     'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 110,
@@ -69,7 +72,7 @@ DOWNLOADER_MIDDLEWARES = {
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 #ITEM_PIPELINES = {
-#    'shopclues.pipelines.ShopcluesPipeline': 300,
+#    'ebay.pipelines.EbayPipeline': 300,
 #}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -95,6 +98,6 @@ DOWNLOADER_MIDDLEWARES = {
 
 RETRY_TIMES = 10
 RETRY_HTTP_CODES = [500, 503, 504, 400, 403, 404, 408]
-PROXY_LIST = '/'.join(os.path.abspath('').split('/')[:-2])+'/proxies/proxiess.txt'
+PROXY_LIST = '/'.join(os.path.abspath('').split('/')[:-3])+'/proxies/proxiess.txt'
 PROXY_MODE = 0
 

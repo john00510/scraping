@@ -1,7 +1,7 @@
 import re
-from com_functions import csv_writer
+from com_functions import csv_writer, mongo_writer
 
-def shopclues_item_parser(response, fh):
+def shopclues_item_parser(response, fh, coll):
     def name_func(response):
         try:
             name = response.xpath('.//h1[@itemprop="name"]/text()').extract()[0].strip()
@@ -100,63 +100,65 @@ def shopclues_item_parser(response, fh):
     price, offer_price, discount = prices_func(response)
     meta_specs, specs = specs_func(response)
 
-    id = ''
-    name = name_func(response)
-    permalink = '' 
-    create_date = ''
-    mrp = ''
-    price = price
-    offer_price = offer_price
-    discount = discount
-    store_id = ''
-    category_id = ''#group_func(response)
-    data_source = 'shopclues.com'
-    ref_id = prod_id_func(response)
-    url = response.url
-    deal_notes = ''
-    meta_title = name
-    meta_key = ''
-    meta_des = meta_specs
-    size = ''
-    size_unit = ''
-    features = specs
-    description = specs
-    key_features = ''#highlights
-    color = color_func(response)
-    brand = brand_func(meta_specs)
-    specifications = specs
-    offers = offer_func(response)
-    in_stock = ''#instock_func(response)
-    free_shipping = shipping_func(response)
-    shippingCharge = ''
-    mm_average_rating = ''
-    is_deal = ''
-    is_coupon = ''
-    start_date = ''
-    end_date = ''
-    coupon_code = ''
-    special_deal = ''
-    upcoming_deal = ''
-    show_as_banner = ''
-    local_store_deal = ''
-    localstore_deal_enabled = ''
-    featured = ''
-    enabled = ''
-    no_cashback = ''
-    base_product = ''
-    match_set = ''
-    match_attempt = ''
-    store_count = ''
-    display_order = ''
-    last_update = ''
-    deleted = ''
-    csv_writer(fh,id,name,permalink,create_date,mrp,price,offer_price,discount,store_id,category_id,\
-               data_source,ref_id,url,description,deal_notes,meta_title,meta_key,meta_des,brand,\
-               size,size_unit,color,key_features,features,specifications,offers,in_stock,free_shipping,\
-               shippingCharge,mm_average_rating,is_deal,is_coupon,start_date,end_date,coupon_code,\
-               special_deal,upcoming_deal,show_as_banner,local_store_deal,localstore_deal_enabled,\
-               featured,enabled,no_cashback,base_product,match_set,match_attempt,store_count,\
-               display_order,last_update,deleted)
-
-
+    d = {}
+    d['id'] = ''
+    d['name'] = name_func(response)
+    d['permalink'] = '' 
+    d['create_date'] = ''
+    d['mrp'] = ''
+    d['price'] = price
+    d['offer_price'] = offer_price
+    d['discount'] = discount
+    d['store_id'] = ''
+    d['category_id'] = ''#group_func(response)
+    d['data_source'] = 'shopclues.com'
+    d['ref_id'] = prod_id_func(response)
+    d['url'] = response.url
+    d['image_url'] = ''
+    d['deal_notes'] = ''
+    d['meta_title'] = name
+    d['meta_key'] = ''
+    d['meta_des'] = meta_specs
+    d['size'] = ''
+    d['size_unit'] = ''
+    d['features'] = specs
+    d['description'] = specs
+    d['key_features'] = ''#highlights
+    d['color'] = color_func(response)
+    d['brand'] = brand_func(meta_specs)
+    d['specifications'] = specs
+    d['offers'] = offer_func(response)
+    d['in_stock'] = ''#instock_func(response)
+    d['free_shipping'] = shipping_func(response)
+    d['shippingCharge'] = ''
+    d['mm_average_rating'] = ''
+    d['is_deal'] = ''
+    d['is_coupon'] = ''
+    d['start_date'] = ''
+    d['end_date'] = ''
+    d['coupon_code'] = ''
+    d['special_deal'] = ''
+    d['upcoming_deal'] = ''
+    d['show_as_banner'] = ''
+    d['local_store_deal'] = ''
+    d['localstore_deal_enabled'] = ''
+    d['featured'] = ''
+    d['enabled'] = ''
+    d['no_cashback'] = ''
+    d['base_product'] = ''
+    d['match_set'] = ''
+    d['match_attempt'] = ''
+    d['store_count'] = ''
+    d['display_order'] = ''
+    d['last_update'] = ''
+    d['deleted'] = ''
+    mongo_writer(coll, d)
+    csv_writer(fh, d['id'],d['name'],d['permalink'],d['create_date'],d['mrp'],d['price'],d['offer_price'],d['discount'],\
+               d['store_id'],d['category_id'],d['data_source'],d['ref_id'],d['url'],d['image_url'],d['description'],d['deal_notes'],\
+               d['meta_title'],d['meta_key'],d['meta_des'],d['brand'],d['size'],d['size_unit'],d['color'],d['key_features'],\
+               d['features'],d['specifications'],d['offers'],d['in_stock'],d['free_shipping'],d['shippingCharge'],\
+               d['mm_average_rating'],d['is_deal'],d['is_coupon'],d['start_date'],d['end_date'],d['coupon_code'],\
+               d['special_deal'],d['upcoming_deal'],d['show_as_banner'],d['local_store_deal'],d['localstore_deal_enabled'],\
+               d['featured'],d['enabled'],d['no_cashback'],d['base_product'],d['match_set'],d['match_attempt'],d['store_count'],\
+               d['display_order'],d['last_update'],d['deleted'])
 

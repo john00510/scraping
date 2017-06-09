@@ -42,6 +42,7 @@ def item_parsing(item, fh, coll, fhl):
         d['data_source'] = 'flipkart.com'
         d['ref_id'] = item['productBaseInfoV1']['productId']
         d['url'] = item['productBaseInfoV1']['productUrl']
+        d['image_url'] = ''#item[]
         d['description'] = item['productBaseInfoV1']['productDescription']
         d['deal_notes'] = ''
         d['meta_title'] = d['name']
@@ -82,7 +83,7 @@ def item_parsing(item, fh, coll, fhl):
         d['_id'] = {'item_url': d['url'], 'date': str(datetime.now().date())}
         mongo_writer(coll, d)
         csv_writer(fh, d['id'],d['name'],d['permalink'],d['create_date'],d['mrp'],d['price'],d['offer_price'],d['discount'],\
-               d['store_id'],d['category_id'],d['data_source'],d['ref_id'],d['url'],d['description'],d['deal_notes'],\
+               d['store_id'],d['category_id'],d['data_source'],d['ref_id'],d['url'],d['image_url'],d['description'],d['deal_notes'],\
                d['meta_title'],d['meta_key'],d['meta_des'],d['brand'],d['size'],d['size_unit'],d['color'],d['key_features'],\
                d['features'],d['specifications'],d['offers'],d['in_stock'],d['free_shipping'],d['shippingCharge'],\
                d['mm_average_rating'],d['is_deal'],d['is_coupon'],d['start_date'],d['end_date'],d['coupon_code'],\

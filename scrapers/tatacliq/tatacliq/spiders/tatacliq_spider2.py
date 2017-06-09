@@ -27,11 +27,17 @@ class MySpider2(scrapy.Spider):
         if len(items) == 0:
             pass
         for item in items:
+            in_stock = item.xpath('.//a[@class="stockLevelStatus"]/text()').extract()
             item_url = urljoin(response.url, item.xpath('.//h2/a/@href').extract()[0])
             price, offer_price, discount = tatacliq_items_parser(item)
             yield scrapy.Request(
                 item_url, 
-                meta={'price': price, 'offer_price': offer_price, 'discount': discount}, 
+                meta={
+                    'price': price, 
+                    'offer_price': offer_price, 
+                    'discount': discount, 
+                    'in_stock': in_stock
+                }, 
                 callback=self.parse_items
             )
 

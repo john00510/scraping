@@ -1,21 +1,27 @@
-import scrapy
-from snapdeal.com_functions import csv_opener
-from snapdeal.functions import snapdeal_item_parser
+import scrapy, os
+from com_functions import csv_opener, mongo_db
+from functions import snapdeal_item_parser
+
 
 class MySpider(scrapy.Spider):
     name = 'snapdeal'
-    start_urls = ['https://www.snapdeal.com']
 
     fh = csv_opener('snapdeal')
+    client, coll = mongo_db()
 
-    def parse(self, response):
-        urls = [
-            'https://www.snapdeal.com/product/jbl-t100a-in-ear-earphone/1808955798#bcrumbLabelId:288',
-            'https://www.snapdeal.com/product/lyf-flame-8gb-black-grey/678753796085',
-        ]
-        for url in urls:
-            yield scrapy.Request(url, callback=self.parse_page)
+    urls = open(os.path.abspath('scr_urls.txt'))
 
-    def parse_page(self, response):
-        snapdeal_item_parser(response, self.fh)
+    def start_requests(self):
+        count = 0
+        for url in self.urls:
+            count += 1
+            print 'scraped: %s' % count
+            yield scrapy.Request(
+                url.strip(),
+                headers={'referer': 'https://www.snapdeal.com/'},
+                callback=self.parse_page
+            )
+
+    def parse_page(self, response):       
+        snapdeal_item_parser(response, self.fh, self.coll)
 

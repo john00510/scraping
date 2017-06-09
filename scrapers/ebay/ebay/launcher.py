@@ -11,7 +11,6 @@ from spiders.ebay_spider6 import MySpider6
 from spiders.ebay_spider7 import MySpider7
 from spiders.ebay_spider8 import MySpider8
 from spiders.ebay_spider9 import MySpider9
-from spiders.ebay_spider10 import MySpider10
 
 log_file = '/'.join(os.path.abspath('').split('/')[:-3]) + '/logs/ebay.log'
 if os.path.exists(log_file):
@@ -27,6 +26,5 @@ process.crawl(MySpider6)
 process.crawl(MySpider7)
 process.crawl(MySpider8)
 process.crawl(MySpider9)
-process.crawl(MySpider10)
 process.start()
 

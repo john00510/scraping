@@ -7,7 +7,7 @@ def csv_opener(fn):
     path = '/'.join(os.path.abspath('').split('/')[:-2])+'/output/flipkart/'
     fn = path + fn + '.csv'
     header = 'id,name,permalink,create_date,mrp,price,offer_price,discount,store_id,category_id,\
-              data_source,ref_id,url,description,deal_notes,meta_title,meta_key,meta_des,brand,\
+              data_source,ref_id,url,image_url,description,deal_notes,meta_title,meta_key,meta_des,brand,\
               size,size_unit,color,key_features,features,specifications,offers,in_stock,free_shipping,\
               shippingCharge,mm_average_rating,is_deal,is_coupon,start_date,end_date,coupon_code,\
               special_deal,upcoming_deal,show_as_banner,local_store_deal,localstore_deal_enabled,\
@@ -19,7 +19,7 @@ def csv_opener(fn):
     return fh
 
 def csv_writer(fh, id, name, permalink, create_date, mrp,price,offer_price,discount,store_id,category_id,\
-               data_source,ref_id,url,description,deal_notes,meta_title,meta_key,meta_des,brand, size,\
+               data_source,ref_id,url,image_url,description,deal_notes,meta_title,meta_key,meta_des,brand, size,\
                size_unit,color,key_features,features,specifications,offers,in_stock,free_shipping,\
                shippingCharge,mm_average_rating,is_deal,is_coupon,start_date,end_date,coupon_code,\
                special_deal,upcoming_deal,show_as_banner,local_store_deal,localstore_deal_enabled,\
@@ -32,10 +32,10 @@ def csv_writer(fh, id, name, permalink, create_date, mrp,price,offer_price,disco
     specifications = str(specifications).replace('"', '')
     features = str(features).replace('"', '')
     description = description.replace('"', '')
-    line = '"%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s",\
+    line = '"%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s",\
            "%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s",\
            "%s","%s","%s","%s","%s","%s","%s","%s","%s","%s"\n' % (id,name.replace('"', "'"),permalink,create_date,\
-           mrp,price,offer_price,discount,store_id,category_id, data_source,ref_id,url,description,deal_notes,\
+           mrp,price,offer_price,discount,store_id,category_id, data_source,ref_id,url,image_url,description,deal_notes,\
            meta_title,meta_key,meta_des.replace('"', "'"),brand, size,size_unit,color,key_features,features,\
            specifications,offers,in_stock,free_shipping,shippingCharge,mm_average_rating,is_deal,is_coupon,\
            start_date,end_date,coupon_code,special_deal,upcoming_deal,show_as_banner,local_store_deal,\
@@ -45,7 +45,8 @@ def csv_writer(fh, id, name, permalink, create_date, mrp,price,offer_price,disco
     fh.write(line.encode('utf8'))
 
 def log_func(fn):
-    fn = fn + '.log'
+    path = '/'.join(os.path.abspath('').split('/')[:-2]) + '/logs/'
+    fn = path + fn + '.log'
     fh = open(fn, 'w')
     return fh
 

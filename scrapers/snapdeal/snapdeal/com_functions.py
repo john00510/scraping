@@ -1,12 +1,13 @@
 from selenium import webdriver
 from datetime import datetime
+from pymongo import MongoClient
 import time, os
 
 def csv_opener(fn):
-    path = '/'.join(os.path.abspath('').split('/')[:-2])+'/output/'
+    path = '/'.join(os.path.abspath('').split('/')[:-3])+'/output/snapdeal/'
     fn = path + fn + '.csv'
     header = 'id,name,permalink,create_date,mrp,price,offer_price,discount,store_id,category_id,\
-              data_source,ref_id,url,description,deal_notes,meta_title,meta_key,meta_des,brand,\
+              data_source,ref_id,url,image_url,description,deal_notes,meta_title,meta_key,meta_des,brand,\
               size,size_unit,color,key_features,features,specifications,offers,in_stock,free_shipping,\
               shippingCharge,mm_average_rating,is_deal,is_coupon,start_date,end_date,coupon_code,\
               special_deal,upcoming_deal,show_as_banner,local_store_deal,localstore_deal_enabled,\
@@ -17,18 +18,8 @@ def csv_opener(fn):
     fh.write(header)
     return fh
 
-def log_opener(fn):
-    path = '/'.join(os.path.abspath('').split('/')[:-3])+'/logs/'
-    fn = path + fn + '.log'
-    fh = open(fn, 'w')
-    return fh
-
-def log_writer(fh, url, error):
-    line = str(error) + ' | ' + url + '\n'
-    fh.write(line)
-
 def csv_writer(fh, id, name, permalink, create_date, mrp,price,offer_price,discount,store_id,category_id,\
-               data_source,ref_id,url,description,deal_notes,meta_title,meta_key,meta_des,brand, size,\
+               data_source,ref_id,url,image_url,description,deal_notes,meta_title,meta_key,meta_des,brand, size,\
                size_unit,color,key_features,features,specifications,offers,in_stock,free_shipping,\
                shippingCharge,mm_average_rating,is_deal,is_coupon,start_date,end_date,coupon_code,\
                special_deal,upcoming_deal,show_as_banner,local_store_deal,localstore_deal_enabled,\
@@ -37,14 +28,14 @@ def csv_writer(fh, id, name, permalink, create_date, mrp,price,offer_price,disco
     name = name.replace('"', '')
     create_date = datetime.now().strftime('%d-%m-%Y %H:%M')
     meta_title = meta_title.replace('"', '')
-    meta_des = str(meta_des).replace('"', '')
+    meta_des = name
     specifications = specifications.replace('"', '')
     features = str(features).replace('"', '')
     description = description.replace('"', '')
     line = '"%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s",\
            "%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s",\
-           "%s","%s","%s","%s","%s","%s","%s","%s","%s","%s"\n' % (id,name.replace('"', "'"),permalink,create_date,\
-           mrp,price,offer_price,discount,store_id,category_id, data_source,ref_id,url,description,deal_notes,\
+           "%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s"\n' % (id,name.replace('"', "'"),permalink,create_date,\
+           mrp,price,offer_price,discount,store_id,category_id, data_source,ref_id,url,image_url,description,deal_notes,\
            meta_title,meta_key,meta_des.replace('"', "'"),brand, size,size_unit,color,key_features,features,\
            specifications,offers,in_stock,free_shipping,shippingCharge,mm_average_rating,is_deal,is_coupon,\
            start_date,end_date,coupon_code,special_deal,upcoming_deal,show_as_banner,local_store_deal,\
@@ -71,19 +62,31 @@ def selenium_spider(url):
         driver.get(url)
         return driver
 
-    def firefox_wd():
-        driver = webdriver.Firefox()
+    def firefox_wd(fp):
+        driver = webdriver.Firefox(firefox_profile=fp)
+        driver.set_window_size(800, 600)
         driver.get(url)
         return driver
 
-    driver = firefox_wd()
+    fp = '/home/john/.mozilla/firefox/ttk1duxx.default' #proxy_changing()
+    driver = firefox_wd(fp)
+    time.sleep(5)
     return driver
 
-def mongodb_writer():
-    pass
+def mongo_db():
+    client = MongoClient()
+    db = client.stores
+    coll = db.snapdeal
+    return client, coll
 
-
-
-
-
+def mongo_writer(coll, item):
+    try:
+        coll.insert(item)
+    except Exception, e:
+        if 'E11000 duplicate key error' in str(e):
+            pass
+        else:
+            print str(e)
+            #print item
+            raise e
 

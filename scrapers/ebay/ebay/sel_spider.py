@@ -23,7 +23,7 @@ cat_list = [
 'Laptops & Computer Peripherals',
 'LCD, LED & Televisions',
 'Memory Cards, Pen Drives & HDD',
-'Mobile Accessories',
+#'Mobile Accessories',
 'Mobile Phones',
 #'Motor Classifieds',
 #'Movies & Music',
