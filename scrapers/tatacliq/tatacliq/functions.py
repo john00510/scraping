@@ -58,7 +58,11 @@ def tatacliq_item_parser(response, fh, coll):
         return color
 
     def in_stock(response):
-        instock = response.xpath('.//div[@id="allVariantOutOfStock"]/@style').extract()[0]
+        instock = response.meta['in_stock']
+        if 'OUT OF STOCK' in instock:
+            instock = 0
+        else:
+            instock = 1
         return instock
 
     def offer_func(response):
@@ -75,6 +79,11 @@ def tatacliq_item_parser(response, fh, coll):
             brand = ''
         return brand
 
+    def image_func(response):
+        images = response.xpath('.//img/@src').extract()
+        image = [i for i in images if 'img.tatacliq.com' in i][0]
+        return image
+
     d = {}
     d['id'] = ''
     d['name'] = response.xpath('.//h1[@class="product-name"]/text()').extract()[0]
@@ -89,6 +98,7 @@ def tatacliq_item_parser(response, fh, coll):
     d['data_source'] = 'tatacliq.com'
     d['ref_id'] = ''
     d['url'] = response.url
+    d['image_url'] = image_func(response)
     d['description'] = descr(response)
     d['deal_notes'] = ''
     d['meta_title'] = ''
@@ -129,7 +139,7 @@ def tatacliq_item_parser(response, fh, coll):
     d['_id'] = {'item_url': d['url'], 'date': str(datetime.now().date())}
     mongo_writer(coll, d)
     csv_writer(fh, d['id'],d['name'],d['permalink'],d['create_date'],d['mrp'],d['price'],d['offer_price'],d['discount'],\
-               d['store_id'],d['category_id'],d['data_source'],d['ref_id'],d['url'],d['description'],d['deal_notes'],\
+               d['store_id'],d['category_id'],d['data_source'],d['ref_id'],d['url'],d['image_url'],d['description'],d['deal_notes'],\
                d['meta_title'],d['meta_key'],d['meta_des'],d['brand'],d['size'],d['size_unit'],d['color'],d['key_features'],\
                d['features'],d['specifications'],d['offers'],d['in_stock'],d['free_shipping'],d['shippingCharge'],\
                d['mm_average_rating'],d['is_deal'],d['is_coupon'],d['start_date'],d['end_date'],d['coupon_code'],\

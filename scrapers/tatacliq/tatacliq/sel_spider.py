@@ -36,7 +36,7 @@ urls = [
 'https://www.tatacliq.com/electronics-small-appliances/c-msh1231',
 'https://www.tatacliq.com/electronics-personal-care/c-msh1236',
 'https://www.tatacliq.com/electronics-storage-devices/c-msh1228',
-'https://www.tatacliq.com/electronics-accessories/c-msh1222',
+#'https://www.tatacliq.com/electronics-accessories/c-msh1222',
 ]
 
 def main():

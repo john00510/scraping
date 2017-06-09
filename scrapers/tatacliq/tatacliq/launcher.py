@@ -13,7 +13,6 @@ from spiders.tatacliq_spider9 import MySpider9
 from spiders.tatacliq_spider10 import MySpider10
 from spiders.tatacliq_spider11 import MySpider11
 from spiders.tatacliq_spider12 import MySpider12
-from spiders.tatacliq_spider13 import MySpider13
 
 log_file = '/'.join(os.path.abspath('').split('/')[:-3]) + '/logs/tatacliq.log'
 if os.path.exists(log_file):
@@ -32,6 +31,5 @@ process.crawl(MySpider9)
 process.crawl(MySpider10)
 process.crawl(MySpider11)
 process.crawl(MySpider12)
-process.crawl(MySpider13)
 process.start()
 
