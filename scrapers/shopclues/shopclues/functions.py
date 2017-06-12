@@ -59,10 +59,8 @@ def shopclues_item_parser(response, fh, coll):
         return d, l
 
     def color_func(response):
-        try:
-            color = response.xpath('.//li[@scname="Colour"]/div')
-        except:
-            color = ''
+        color = response.xpath('.//li[@scname="Color"]/span/text()').extract()
+        color = ', '.join(color)
         return color
 
     def brand_func(meta_specs):
@@ -73,11 +71,8 @@ def shopclues_item_parser(response, fh, coll):
         return brand
 
     def group_func(response):
-        try:
-            group = response.xpath('.//div[@id="breadCrumbWrapper2"]/div/a/span/text()').extract()
-            group = ', '.join(group)
-        except:
-            group = ''
+        group = response.xpath('.//div[@class="breadcrums"]/ul/li/a/span/text()').extract()[1:]
+        group = ', '.join(group)
         return group
 
     def offer_func(response):
@@ -97,6 +92,16 @@ def shopclues_item_parser(response, fh, coll):
             in_stock =1
         return in_stock
 
+    def image_func(response):
+        images = response.xpath('.//img/@src').extract()
+        images = [i for i in images if 'logo' not in i]
+        image = [i for i in images if len(i.strip()) != 0][0]
+        return image
+
+    def descr_func(response):
+        descr = response.xpath('.//div[@id="product_description"]/p/span/text()').extract()
+        pass
+
     price, offer_price, discount = prices_func(response)
     meta_specs, specs = specs_func(response)
 
@@ -110,13 +115,13 @@ def shopclues_item_parser(response, fh, coll):
     d['offer_price'] = offer_price
     d['discount'] = discount
     d['store_id'] = ''
-    d['category_id'] = ''#group_func(response)
+    d['category_id'] = group_func(response)
     d['data_source'] = 'shopclues.com'
     d['ref_id'] = prod_id_func(response)
     d['url'] = response.url
-    d['image_url'] = ''
+    d['image_url'] = image_func(response)
     d['deal_notes'] = ''
-    d['meta_title'] = name
+    d['meta_title'] = d['name']
     d['meta_key'] = ''
     d['meta_des'] = meta_specs
     d['size'] = ''

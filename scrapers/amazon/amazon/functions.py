@@ -1,80 +1,98 @@
-import time, re
+#coding: utf8
+import time, re, sys
 from com_functions import csv_writer, mongo_writer
 from datetime import datetime
 
 
-def amazon_item_parser(response, fh, category, coll):
+def amazon_item_parser(response, fh, coll):
     def name_func(response):
-        name = response.xpath('.//h1[@id="itemTitle"]/text()').extract()[0]
+        name = response.xpath('.//h1[@id="title"]/span/text()').extract()[0].strip()
         return name
 
     def price_func(response):
         try:
-            price = response.xpath('.//span[@itemprop="price"]/text()').extract()[0].split(' ')[1]
-            offer_price = price
-            discount = ''
+            prices = response.xpath('.//div[@id="price"]/table/tr/td/span/text()').extract()
+            prices = [p.strip() for p in prices if len(p.strip())!=0]
+            price = prices[0]
+            offer_price = prices[1]
+            discount = response.xpath('.//tr[@id="regularprice_savings"]/td/text()').extract()[1]
+            discount = re.findall(r'([0-9*]%)', discount)[0]
         except:
-            price = response.xpath('.//span[@id="mm-saleOrgPrc"]/text()').extract()[0].split(' ')[1]
-            offer_price = response.xpath('.//span[contains(text(), "Discounted price")]/\
-                following-sibling::span/text()').extract()[0].split(' ')[1]
-            discount = response.xpath('.//div[@id="mm-saleAmtSavedPrc"]/text()').extract()[0].strip()
-            discount = re.findall(r'([0-9]+%)', discount)[0]
+            try:
+                price = response.xpath('.//span[@id="priceblock_ourprice"]/text()').extract()[0].strip()
+                offer_price = ''
+                discount = ''
+            except:
+                price = ''
+                offer_price = ''
+                discount = ''
         return price, offer_price, discount
 
     def brand_func(response):
-        brand = response.xpath('.//td[@class="attrLabels"][contains(text(), "Brand:")]/following-sibling\
-                ::td/span/text()').extract()[0]
+        brand = response.xpath('.//a[@id="brand"]/text()').extract()[0].strip()
         return brand
 
     def features_func(response):
-        d = {}
-        features = response.xpath('.//h2[contains(text(), "Item specifics")]/following-sibling::table/tr')
-        try:
-            d['Condition'] = features[0].xpath('./td/div/text()').extract()[0].strip().strip(':')
-        except:
-            d['Condition'] = ''
-        try:
-            d['Brand'] = features[0].xpath('./td/span/text()').extract()[0].strip()
-        except:
-            d['Brand'] = ''
-        for feature in features[1:]:
-            try:
-                d[feature.xpath('./td/text()').extract()[0].strip().strip(':').replace('.', '')] = feature.xpath('./td/span/text()')\
-                    .extract()[0]
-                d[feature.xpath('./td/text()').extract()[2].strip().strip(':').replace('.', '')] = feature.xpath('./td/span/text()')\
-                    .extract()[1]
-            except:
-                d[feature.xpath('./td/text()').extract()[0].strip().strip(':').replace('.', '')] = feature.xpath('./td/span/text()')\
-                    .extract()[0]
-        return d
-
-    def ref_number(response):
-        ref_number = response.xpath('.//div[@id="descItemNumber"]/text()').extract()[0].strip()
-        return ref_number
+        l = {}
+        s = ''
+        rows = response.xpath('.//div[@class="section techD"]/div[contains(@class, "content")]/div/div/table/tbody/tr')
+        for row in rows:
+            row = row.xpath('.//td/text()').extract()
+            if len(row) != 2:
+                continue
+            label = row[0].strip()
+            value = row[1].strip()
+            if len(label) == 0 or len(value) == 0:
+                continue
+            l[label] = value
+            line = '%s: %s, ' % (label, value)
+            s += line
+        s = s.strip().strip(',') + '.'
+        return s, l
 
     def shipping(response):
-        shipping = response.xpath('.//span[@id="shSummary"]/span/span/text()').extract()
-        if 'FREE' in shipping:
-            shipping = 1
+        shipping = response.xpath('.//span[@id="price-shipping-message"]/b/text()').extract()
+        if 'FREE Delivery' in shipping:
+            return 1
         else:
-            shipping = 0
-        return shipping
+            return 0
 
-    def color_func(features):
+    def in_stock(response):
+        instock = response.xpath('.//div[@id="availability"]/span/text()').extract()[0].strip().lower()
+        if 'in stock' in instock:
+            return 1
+        else:
+            return 0
+
+    def color_func(feats_dict):
         try:
-            color = features['Colour']
+            return feats_dict['Colour']
         except:
-            color = ''
-        return color
+            return ''
 
-    def descr(features):
-        s = ''
-        for x, y in features.items():
-            s += x + ': ' + y + ', '
-        s = s.strip().strip(',') + '.'
-        return s
+    def descr(response):
+        feats = response.xpath('.//div[@id="feature-bullets"]/ul/li/span/text()').extract()
+        feats = [f.strip() for f in feats]
+        descr = '; '.join(feats)+'.'
+        return descr
+
+    def group_func(response):
+        group = response.xpath('.//div[@id="showing-breadcrumbs_div"]/div/div/ul/li/span[@class="a-list-item"]/a/text()').extract()[-1].strip()
+        return group
+
+    def imageurl_func(response):
+        image = response.xpath('.//img[@id="landingImage"]/@src').extract()[0]
+        return image
+
+    def ref_id(feats_dict):
+        try:
+            refid = feats_dict['ASIN']
+        except:
+            refid = ''
+        return refid
 
     pr, of_pr, disc = price_func(response)
+    feats_line, feats_dict = features_func(response)
 
     d = {}
     d['id'] = ''
@@ -86,25 +104,25 @@ def amazon_item_parser(response, fh, category, coll):
     d['offer_price'] = of_pr
     d['discount'] = disc
     d['store_id'] = ''
-    d['category_id'] = category 
-    d['data_source'] = 'ebay.in'
-    d['ref_id'] = ref_number(response)
+    d['category_id'] = group_func(response) 
+    d['data_source'] = 'amazon.in'
+    d['ref_id'] = ref_id(feats_dict)
     d['url'] = response.url
-    d['image_url'] = ''######################################
+    d['image_url'] = imageurl_func(response)
     d['deal_notes'] = ''
     d['meta_title'] = d['name']
     d['meta_key'] = ''
     d['meta_des'] = ''
     d['size'] = ''
     d['size_unit'] = ''
-    d['features'] = features_func(response)
-    d['description'] = descr(d['features'])
+    d['features'] = feats_line
+    d['description'] = descr(response)
     d['key_features'] = ''
-    d['color'] = color_func(d['features'])
-    d['brand'] = d['features']['Brand']
-    d['specifications'] = ''
+    d['color'] = color_func(feats_dict)
+    d['brand'] = brand_func(response)
+    d['specifications'] = feats_line
     d['offers'] = ''
-    d['in_stock'] = ''
+    d['in_stock'] = in_stock(response)
     d['free_shipping'] = shipping(response)
     d['shippingCharge'] = ''
     d['mm_average_rating'] = ''

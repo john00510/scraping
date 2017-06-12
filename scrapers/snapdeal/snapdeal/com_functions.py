@@ -29,6 +29,7 @@ def csv_writer(fh, id, name, permalink, create_date, mrp,price,offer_price,disco
     create_date = datetime.now().strftime('%d-%m-%Y %H:%M')
     meta_title = meta_title.replace('"', '')
     meta_des = name
+    key_features = key_features.replace('"', '')
     specifications = specifications.replace('"', '')
     features = str(features).replace('"', '')
     description = description.replace('"', '')
