@@ -15,7 +15,7 @@ def snapdeal_item_parser(response, fh, coll):
         except:
             price = response.xpath('.//span[@itemprop="price"]/text()').extract()[0].strip().strip('Rs.').strip()
             offer_price = price
-            discount = ''
+            discount = None
         return price, offer_price, discount
 
     def description_func(response):
@@ -44,17 +44,15 @@ def snapdeal_item_parser(response, fh, coll):
 
     def color_func(meta_specs):
         try:
-            color = meta_specs['Colour']
+            return meta_specs['Colour']
         except:
-            color = ''
-        return color
+            return None
 
     def brand_func(meta_specs):
         try:
-            brand = meta_specs['Brand']
+            return meta_specs['Brand']
         except:
-            brand = ''
-        return brand
+            return None
 
     def group_func(response):
         group = response.xpath('.//div[@id="breadCrumbWrapper2"]/div/a/span/text()').extract()
@@ -65,18 +63,16 @@ def snapdeal_item_parser(response, fh, coll):
         try:
             offer = response.xpath('.//div[contains(@class, "offer-content")]/div/div/text()').extract()
             offer = [o.strip() for o in offer if len(o.strip())!= 0]
-            offer = ', '.join(offer) + '.'
+            return ', '.join(offer) + '.'
         except:
-            offer = ''
-        return offer
+            return None
 
     def instock_func(response):
         try: 
             response.xpath('.//div[@class="sold-out-err"]/text()')[0]
-            in_stock = 0
+            return 0
         except:
-            in_stock =1
-        return in_stock
+            return 1
 
     def imageurl_func(response):
         urls = response.xpath('.//img/@src').extract()
@@ -88,26 +84,27 @@ def snapdeal_item_parser(response, fh, coll):
     descr, specs, meta_specs, highlights = description_func(response)
 
     d = {}
-    d['id'] = ''
+    d['id'] = None
     d['name'] = name_func(response)
-    d['permalink'] = '' 
-    d['create_date'] = ''
-    d['mrp'] = ''
+    d['permalink'] = None 
+    d['create_date'] = None
+    d['mrp'] = None
     d['price'] = price
     d['offer_price'] = offer_price
     d['discount'] = discount
-    d['store_id'] = ''
-    d['category_id'] = group_func(response)
+    d['store_id'] = None
+    d['category'] = group_func(response)
+    d['category_id'] = None
     d['data_source'] = 'snapdeal.com'
-    d['ref_id'] = ''
+    d['ref_id'] = None
     d['url'] = response.url
     d['image_url'] = imageurl_func(response)
-    d['deal_notes'] = ''
+    d['deal_notes'] = None
     d['meta_title'] = d['name']
-    d['meta_key'] = ''
+    d['meta_key'] = None
     d['meta_des'] = meta_specs
-    d['size'] = ''
-    d['size_unit'] = ''
+    d['size'] = None
+    d['size_unit'] = None
     d['features'] = highlights
     d['description'] = descr
     d['key_features'] = highlights
@@ -117,31 +114,32 @@ def snapdeal_item_parser(response, fh, coll):
     d['offers'] = offer_func(response)
     d['in_stock'] = instock_func(response)
     d['free_shipping'] = 0
-    d['shippingCharge'] = ''
-    d['mm_average_rating'] = ''
-    d['is_deal'] = ''
-    d['is_coupon'] = ''
-    d['start_date'] = ''
-    d['end_date'] = ''
-    d['coupon_code'] = ''
-    d['special_deal'] = ''
-    d['upcoming_deal'] = ''
-    d['show_as_banner'] = ''
-    d['local_store_deal'] = ''
-    d['localstore_deal_enabled'] = ''
-    d['featured'] = ''
-    d['enabled'] = ''
-    d['no_cashback'] = ''
-    d['base_product'] = ''
-    d['match_set'] = ''
-    d['match_attempt'] = ''
-    d['store_count'] = ''
-    d['display_order'] = ''
-    d['last_update'] = ''
-    d['deleted'] = ''
+    d['shippingCharge'] = None
+    d['mm_average_rating'] = None
+    d['is_deal'] = None
+    d['is_coupon'] = None
+    d['start_date'] = None
+    d['end_date'] = None
+    d['coupon_code'] = None
+    d['special_deal'] = None
+    d['upcoming_deal'] = None
+    d['show_as_banner'] = None
+    d['local_store_deal'] = None
+    d['localstore_deal_enabled'] = None
+    d['featured'] = None
+    d['enabled'] = None
+    d['no_cashback'] = None
+    d['base_product'] = None
+    d['match_set'] = None
+    d['match_attempt'] = None
+    d['store_count'] = None
+    d['display_order'] = None
+    d['last_update'] = None
+    d['deleted'] = None
     mongo_writer(coll, d)
     csv_writer(fh, d['id'],d['name'],d['permalink'],d['create_date'],d['mrp'],d['price'],d['offer_price'],d['discount'],\
-               d['store_id'],d['category_id'],d['data_source'],d['ref_id'],d['url'],d['image_url'],d['description'],d['deal_notes'],\
+               d['store_id'],d['category'],d['category_id'],d['data_source'],d['ref_id'],d['url'],d['image_url'],\
+               d['description'],d['deal_notes'],\
                d['meta_title'],d['meta_key'],d['meta_des'],d['brand'],d['size'],d['size_unit'],d['color'],d['key_features'],\
                d['features'],d['specifications'],d['offers'],d['in_stock'],d['free_shipping'],d['shippingCharge'],\
                d['mm_average_rating'],d['is_deal'],d['is_coupon'],d['start_date'],d['end_date'],d['coupon_code'],\

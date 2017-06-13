@@ -6,7 +6,7 @@ import time, os
 def csv_opener(fn):
     path = '/'.join(os.path.abspath('').split('/')[:-3])+'/output/shopclues/'
     fn = path + fn + '.csv'
-    header = 'id,name,permalink,create_date,mrp,price,offer_price,discount,store_id,category_id,\
+    header = 'id,name,permalink,create_date,mrp,price,offer_price,discount,store_id,category,category_id,\
               data_source,ref_id,url,image_url,description,deal_notes,meta_title,meta_key,meta_des,brand,\
               size,size_unit,color,key_features,features,specifications,offers,in_stock,free_shipping,\
               shippingCharge,mm_average_rating,is_deal,is_coupon,start_date,end_date,coupon_code,\
@@ -18,7 +18,7 @@ def csv_opener(fn):
     fh.write(header)
     return fh
 
-def csv_writer(fh, id, name, permalink, create_date, mrp,price,offer_price,discount,store_id,category_id,\
+def csv_writer(fh, id, name, permalink, create_date, mrp,price,offer_price,discount,store_id,category,category_id,\
                data_source,ref_id,url,image_url,description,deal_notes,meta_title,meta_key,meta_des,brand, size,\
                size_unit,color,key_features,features,specifications,offers,in_stock,free_shipping,\
                shippingCharge,mm_average_rating,is_deal,is_coupon,start_date,end_date,coupon_code,\
@@ -34,8 +34,8 @@ def csv_writer(fh, id, name, permalink, create_date, mrp,price,offer_price,disco
     description = description.replace('"', '')
     line = '"%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s",\
            "%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s",\
-           "%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s"\n' % (id,name.replace('"', "'"),permalink,create_date,\
-           mrp,price,offer_price,discount,store_id,category_id, data_source,ref_id,url,image_url,description,deal_notes,\
+           "%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s"\n' % (id,name,permalink,create_date,\
+           mrp,price,offer_price,discount,store_id,category,category_id, data_source,ref_id,url,image_url,description,deal_notes,\
            meta_title,meta_key,meta_des,brand, size,size_unit,color,key_features,features,\
            specifications,offers,in_stock,free_shipping,shippingCharge,mm_average_rating,is_deal,is_coupon,\
            start_date,end_date,coupon_code,special_deal,upcoming_deal,show_as_banner,local_store_deal,\
@@ -64,6 +64,7 @@ def selenium_spider(url):
 
     def firefox_wd(fp):
         driver = webdriver.Firefox(firefox_profile=fp)
+        driver.set_window_size(800, 600)
         driver.get(url)
         return driver
 

@@ -15,11 +15,7 @@ def error_func(driver):
         pass
 
 def scrolling_down(driver):
-    #scheight = 9.9
-    while scheight > .1:
-        driver.execute_script("window.scrollTo(0, document.body.scrollHeight/.01);" #% scheight)
-        scheight -= .01
-        time.sleep(0.01)
+    pass
 
 def scroll_to_element(driver): 
     driver.execute_script("arguments[0].scrollIntoView();", driver.find_element_by_xpath('.//div[@id="see-more-products"][contains(@style, "visible")]'))
@@ -62,8 +58,8 @@ def scraping_items(driver, fh, total):
         print 'category: %s, total: %s, scraped: %s' % (category, total, len(urls))
         if int(total) == len(urls):
             break
-        #driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-        scrolling_down(driver)
+        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        #scrolling_down(driver)
         time.sleep(5)
         try:
             driver.find_element_by_xpath('.//div[@id="load_more"][contains(@style, "display")]').click()

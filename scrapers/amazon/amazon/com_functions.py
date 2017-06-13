@@ -55,7 +55,6 @@ def selenium_spider(url):
         fp.set_preference('network.proxy.http_port', int(proxy_port))
         fp.set_preference('network.proxy.https', proxy_host)
         fp.set_preference('network.proxy.https_port', int(proxy_port))
-        fp.update_preferences()
         return fp
 
     def phantomjs_wd():
@@ -65,11 +64,12 @@ def selenium_spider(url):
 
     def firefox_wd():
         driver = webdriver.Firefox()
+        driver.set_window_size(800, 600)
         driver.get(url)
         return driver
 
-    #driver = firefox_wd()
-    driver = phantomjs_wd()
+    driver = firefox_wd()
+    #driver = phantomjs_wd()
     time.sleep(5)
     return driver
 
@@ -77,6 +77,12 @@ def mongo_db():
     client = MongoClient()
     db = client.stores
     coll = db.amazon
+    return client, coll
+
+def mongo_db2():
+    client = MongoClient()
+    db = client.stores
+    coll = db.amazon2
     return client, coll
 
 def mongo_writer(coll, item):

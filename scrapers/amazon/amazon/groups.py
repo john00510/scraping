@@ -69,7 +69,7 @@ groups = [
 ##"Screen Protectors",
 #"Power Banks",
 ##"All Electronics",
-#####"All Tablets", # 6908
+"All Tablets", # 6908
 ##"Tablet Accessories",
 #"Landline Phones", # 1392
 #"Wearable Devices",

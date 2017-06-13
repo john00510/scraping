@@ -12,7 +12,7 @@ def ebay_item_parser(response, fh, category, coll):
         try:
             price = response.xpath('.//span[@itemprop="price"]/text()').extract()[0].split(' ')[1]
             offer_price = price
-            discount = ''
+            discount = None
         except:
             price = response.xpath('.//span[@id="mm-saleOrgPrc"]/text()').extract()[0].split(' ')[1]
             offer_price = response.xpath('.//span[contains(text(), "Discounted price")]/\
@@ -55,17 +55,15 @@ def ebay_item_parser(response, fh, category, coll):
     def shipping(response):
         shipping = response.xpath('.//span[@id="shSummary"]/span/span/text()').extract()
         if 'FREE' in shipping:
-            shipping = 1
+            return 1
         else:
-            shipping = 0
-        return shipping
+            return 0
 
     def color_func(features):
         try:
-            color = features['Colour']
+            return features['Colour']
         except:
-            color = ''
-        return color
+            return None
 
     def descr(features):
         s = ''
@@ -81,61 +79,63 @@ def ebay_item_parser(response, fh, category, coll):
     pr, of_pr, disc = price_func(response)
 
     d = {}
-    d['id'] = ''
+    d['id'] = None
     d['name'] = name_func(response)
-    d['permalink'] = '' 
-    d['create_date'] = ''
-    d['mrp'] = ''
+    d['permalink'] = None 
+    d['create_date'] = None
+    d['mrp'] = None
     d['price'] = pr
     d['offer_price'] = of_pr
     d['discount'] = disc
-    d['store_id'] = ''
-    d['category_id'] = category 
+    d['store_id'] = None
+    d['category'] = categoru
+    d['category_id'] = None 
     d['data_source'] = 'ebay.in'
     d['ref_id'] = ref_number(response)
     d['url'] = response.url
     d['image_url'] = image_func(response)
-    d['deal_notes'] = ''
+    d['deal_notes'] = None
     d['meta_title'] = d['name']
-    d['meta_key'] = ''
-    d['meta_des'] = ''
-    d['size'] = ''
-    d['size_unit'] = ''
+    d['meta_key'] = None
+    d['meta_des'] = None
+    d['size'] = None
+    d['size_unit'] = None
     d['features'] = features_func(response)
     d['description'] = descr(d['features'])
-    d['key_features'] = ''
+    d['key_features'] = None
     d['color'] = color_func(d['features'])
     d['brand'] = d['features']['Brand']
-    d['specifications'] = ''
-    d['offers'] = ''
-    d['in_stock'] = ''
+    d['specifications'] = None
+    d['offers'] = None
+    d['in_stock'] = None
     d['free_shipping'] = shipping(response)
-    d['shippingCharge'] = ''
-    d['mm_average_rating'] = ''
-    d['is_deal'] = ''
-    d['is_coupon'] = ''
-    d['start_date'] = ''
-    d['end_date'] = ''
-    d['coupon_code'] = ''
-    d['special_deal'] = ''
-    d['upcoming_deal'] = ''
-    d['show_as_banner'] = ''
-    d['local_store_deal'] = ''
-    d['localstore_deal_enabled'] = ''
-    d['featured'] = ''
-    d['enabled'] = ''
-    d['no_cashback'] = ''
-    d['base_product'] = ''
-    d['match_set'] = ''
-    d['match_attempt'] = ''
-    d['store_count'] = ''
-    d['display_order'] = ''
-    d['last_update'] = ''
-    d['deleted'] = ''
+    d['shippingCharge'] = None
+    d['mm_average_rating'] = None
+    d['is_deal'] = None
+    d['is_coupon'] = None
+    d['start_date'] = None
+    d['end_date'] = None
+    d['coupon_code'] = None
+    d['special_deal'] = None
+    d['upcoming_deal'] = None
+    d['show_as_banner'] = None
+    d['local_store_deal'] = None
+    d['localstore_deal_enabled'] = None
+    d['featured'] = None
+    d['enabled'] = None
+    d['no_cashback'] = None
+    d['base_product'] = None
+    d['match_set'] = None
+    d['match_attempt'] = None
+    d['store_count'] = None
+    d['display_order'] = None
+    d['last_update'] = None
+    d['deleted'] = None
     d['_id'] = {'item_url': d['url'], 'date': str(datetime.now().date())}
     mongo_writer(coll, d)
     csv_writer(fh, d['id'],d['name'],d['permalink'],d['create_date'],d['mrp'],d['price'],d['offer_price'],d['discount'],\
-               d['store_id'],d['category_id'],d['data_source'],d['ref_id'],d['url'],d['image_url'],d['description'],d['deal_notes'],\
+               d['store_id'],d['category'],d['category_id'],d['data_source'],d['ref_id'],d['url'],d['image_url'],\
+               d['description'],d['deal_notes'],\
                d['meta_title'],d['meta_key'],d['meta_des'],d['brand'],d['size'],d['size_unit'],d['color'],d['key_features'],\
                d['features'],d['specifications'],d['offers'],d['in_stock'],d['free_shipping'],d['shippingCharge'],\
                d['mm_average_rating'],d['is_deal'],d['is_coupon'],d['start_date'],d['end_date'],d['coupon_code'],\

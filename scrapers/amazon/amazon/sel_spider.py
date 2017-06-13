@@ -1,21 +1,19 @@
 #encoding: utf8
-from com_functions import selenium_spider, mongo_db
+from com_functions import selenium_spider, mongo_db2, mongo_writer
 from groups import groups
 import time, re
 
 
 def total_count(driver):
     tc = driver.find_element_by_xpath('.//h2[@id="s-result-count"]').text
-    print tc
     try:
-        tc = re.findall(r' ([0-9,.]+) ', tc)[0].replace(',', '')
+        return re.findall(r' ([0-9,.]+) ', tc)[0].replace(',', '')
     except:
-        tc = re.findall(r'^([0-9]+) ', tc)[0]
-    return tc
+        return re.findall(r'^([0-9]+) ', tc)[0]
 
 def mobile_exc(driver):
     try:
-        driver.find_elements_by_xpath('.//span[@class="a-list-item"]/a/span[contains(text(), "Basic Mobiles")]').click()
+        driver.find_element_by_xpath('.//span[contains(text(), "Basic Mobiles")]').click()
         time.sleep(5)
         return driver
     except:
@@ -47,7 +45,7 @@ def scraping_cats(url):
     print 'scraped %s categories' % (len(urls))
     return urls
 
-def scraping_cat(urls, fh):
+def scraping_cat(urls, fh, coll):
     for u in urls:
         url = u['url']
         cat_name = u['cat_name'].lower()
@@ -64,11 +62,13 @@ def scraping_cat(urls, fh):
             scraped += len(items)
             print '%s, total: %s, scraped: %s' % (cat_name, total, scraped)
             for item in items:
-                url = item.find_element_by_xpath('.//a[@title]').get_attribute('href')
-                #name = item.find_element_by_xpath('.//a[@title]').get_attribute('title')
-                #brand = brand_func(driver)
-                line = '%s\n' % url
-                fh.write(line)
+                d = {}
+                d['url'] = item.find_element_by_xpath('.//a[@title]').get_attribute('href')
+                d['name'] = item.find_element_by_xpath('.//a[@title]').get_attribute('title')
+                d['brand'] = brand_func(driver)
+                mongo_writer(coll, d)
+                #line = '%s\n' % d['url']
+                #fh.write(line)
 
             try:
                 next_page = driver.find_element_by_xpath('.//a[@id="pagnNextLink"]/span[@id="pagnNextString"]')
@@ -81,9 +81,11 @@ def scraping_cat(urls, fh):
           
 
 if __name__ == "__main__":
-    fh = open('scr_urls.txt', 'w')
+    fh = '' #open('scr_urls.txt', 'w')
+    client, coll = mongo_db2()
     url = 'http://www.amazon.in/gp/site-directory/ref=nav_shopall_btn'
     urls = scraping_cats(url)
-    scraping_cat(urls, fh)
-    fh.close()
+    scraping_cat(urls, fh, coll)
+    #fh.close()
+    client.close()
 

@@ -4,37 +4,37 @@ from urls import urls
 from com_functions import csv_opener, mongo_db
 
 
-class MySpider6(scrapy.Spider):
-    name = 'ebay6'
+class MySpider(scrapy.Spider):
+    name = 'ebay'
     allowed_domains = ['http://www.ebay.in']
 
-    page1 = urls[5]['first_url']
-    page2 = urls[5]['second_url']
-    pgs = urls[5]['pages']
-    category = urls[5]['cat_name']
-    itms = 50
-
-    fh = csv_opener('ebay_%s' % category.replace(' ', '_').lower())
+    fh = csv_opener('ebay')
     client, coll = mongo_db()
 
     def start_requests(self):
-        yield scrapy.Request(
-            self.page1, 
-            headers={'referer': 'http://www.ebay.in'},
-            callback=self.parse, 
-            dont_filter=True, 
-            meta={'category': self.category}
-        )
-        for x in range(2, self.pgs):
-            url = re.sub(r'skc=50&', 'skc=%s&', re.sub(r'pgn=2&', 'pgn=%s&', self.page2) % x) % self.itms
+        for x in urls:
+            page1 = x['first_url']
+            page2 = x['second_url']
+            pgs = x['pages']
+            category = x['cat_name']
+            itms = 50
             yield scrapy.Request(
-                url, 
+                page1, 
                 headers={'referer': 'http://www.ebay.in'},
                 callback=self.parse, 
                 dont_filter=True, 
-                meta={'category': self.category}
+                meta={'category': category}
             )
-            self.itms += 50
+            for y in range(2, pgs):
+                url = re.sub(r'skc=50&', 'skc=%s&', re.sub(r'pgn=2&', 'pgn=%s&', page2) % x) % itms
+                yield scrapy.Request(
+                    url, 
+                    headers={'referer': 'http://www.ebay.in'},
+                    callback=self.parse, 
+                    dont_filter=True, 
+                    meta={'category': category}
+                )
+                itms += 50
 
     def parse(self, response):
         urls = response.xpath('.//ul[@id="ListViewInner"]/li/h3/a/@href').extract()
