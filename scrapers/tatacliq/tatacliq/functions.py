@@ -80,7 +80,6 @@ def tatacliq_item_parser(response, fh, coll):
         return image
 
     d = {}
-    d['id'] = None
     d['name'] = response.xpath('.//h1[@class="product-name"]/text()').extract()[0]
     d['permalink'] = None 
     d['create_date'] = None
@@ -89,8 +88,9 @@ def tatacliq_item_parser(response, fh, coll):
     d['offer_price'] = response.meta['offer_price']
     d['discount'] = response.meta['discount']
     d['store_id'] = None
-    d['category'] = response.xpath('.//ul[@class="breadcrumbs wrapper"]/li/a/text()').extract()[2]
+    d['category'] = response.xpath('.//ul[@class="breadcrumbs wrapper"]/li/a/text()').extract()[2].lower().strip()
     d['category_id'] = None
+    d['source'] = 'tatacliq.com'
     d['data_source'] = 'tatacliq.com'
     d['ref_id'] = None
     d['url'] = response.url
@@ -132,10 +132,9 @@ def tatacliq_item_parser(response, fh, coll):
     d['display_order'] = None
     d['last_update'] = None
     d['deleted'] = None
-    d['_id'] = {'item_url': d['url'], 'date': str(datetime.now().date())}
     mongo_writer(coll, d)
-    csv_writer(fh, d['id'],d['name'],d['permalink'],d['create_date'],d['mrp'],d['price'],d['offer_price'],d['discount'],\
-               d['store_id'],d['category'],d['category_id'],d['data_source'],d['ref_id'],d['url'],d['image_url'],\
+    csv_writer(fh, d['name'],d['permalink'],d['create_date'],d['mrp'],d['price'],d['offer_price'],d['discount'],\
+               d['store_id'],d['category'],d['category_id'],d['source'],d['data_source'],d['ref_id'],d['url'],d['image_url'],\
                d['description'],d['deal_notes'],\
                d['meta_title'],d['meta_key'],d['meta_des'],d['brand'],d['size'],d['size_unit'],d['color'],d['key_features'],\
                d['features'],d['specifications'],d['offers'],d['in_stock'],d['free_shipping'],d['shippingCharge'],\
@@ -143,4 +142,5 @@ def tatacliq_item_parser(response, fh, coll):
                d['special_deal'],d['upcoming_deal'],d['show_as_banner'],d['local_store_deal'],d['localstore_deal_enabled'],\
                d['featured'],d['enabled'],d['no_cashback'],d['base_product'],d['match_set'],d['match_attempt'],d['store_count'],\
                d['display_order'],d['last_update'],d['deleted'])
+
 

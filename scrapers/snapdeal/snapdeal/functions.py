@@ -1,8 +1,8 @@
 import time, re
-from com_functions import csv_writer, mongo_writer 
+from datetime import datetime
 
-
-def snapdeal_item_parser(response, fh, coll):
+def snapdeal_item_parser(response):
+    coll = response.meta['coll']
     def name_func(response):
         name = response.xpath('.//h1[@itemprop="name"]/text()').extract()[0].strip()
         return name
@@ -87,15 +87,16 @@ def snapdeal_item_parser(response, fh, coll):
     d['id'] = None
     d['name'] = name_func(response)
     d['permalink'] = None 
-    d['create_date'] = None
+    d['create_date'] = datetime.now().strftime('%d-%m-%Y %H:%M')
     d['mrp'] = None
     d['price'] = price
     d['offer_price'] = offer_price
     d['discount'] = discount
     d['store_id'] = None
-    d['category'] = group_func(response)
+    d['category'] = response.meta['category']
     d['category_id'] = None
-    d['data_source'] = 'snapdeal.com'
+    d['source'] = response.meta['source']
+    d['data_source'] = response.meta['source']
     d['ref_id'] = None
     d['url'] = response.url
     d['image_url'] = imageurl_func(response)
@@ -136,14 +137,5 @@ def snapdeal_item_parser(response, fh, coll):
     d['display_order'] = None
     d['last_update'] = None
     d['deleted'] = None
-    mongo_writer(coll, d)
-    csv_writer(fh, d['id'],d['name'],d['permalink'],d['create_date'],d['mrp'],d['price'],d['offer_price'],d['discount'],\
-               d['store_id'],d['category'],d['category_id'],d['data_source'],d['ref_id'],d['url'],d['image_url'],\
-               d['description'],d['deal_notes'],\
-               d['meta_title'],d['meta_key'],d['meta_des'],d['brand'],d['size'],d['size_unit'],d['color'],d['key_features'],\
-               d['features'],d['specifications'],d['offers'],d['in_stock'],d['free_shipping'],d['shippingCharge'],\
-               d['mm_average_rating'],d['is_deal'],d['is_coupon'],d['start_date'],d['end_date'],d['coupon_code'],\
-               d['special_deal'],d['upcoming_deal'],d['show_as_banner'],d['local_store_deal'],d['localstore_deal_enabled'],\
-               d['featured'],d['enabled'],d['no_cashback'],d['base_product'],d['match_set'],d['match_attempt'],d['store_count'],\
-               d['display_order'],d['last_update'],d['deleted'])
+    coll.insert(d)
 

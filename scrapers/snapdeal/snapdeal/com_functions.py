@@ -47,7 +47,7 @@ def csv_writer(fh, id, name, permalink, create_date, mrp,price,offer_price,disco
 
     fh.write(line.encode('utf8'))
 
-def selenium_spider(url):
+def firefox_spider(url):
     def proxy_changing():
         proxy_host = '159.203.117.131'
         proxy_port = '3128'
@@ -71,8 +71,21 @@ def selenium_spider(url):
         driver.get(url)
         return driver
 
-    fp = '/home/john/.mozilla/firefox/ttk1duxx.default' #proxy_changing()
+    fp = '/home/john/.mozilla/firefox/ttk1duxx.default' 
+    #fp = proxy_changing()
     driver = firefox_wd(fp)
+    time.sleep(5)
+    return driver
+
+def spider(url):
+    proxy = '159.203.117.131:3128'
+    chrome_options = webdriver.ChromeOptions()
+    prefs = {"profile.managed_default_content_settings.images":2}
+    chrome_options.add_experimental_option("prefs",prefs)
+    chrome_options.add_argument('--proxy-server=%s' % proxy)
+    driver = webdriver.Chrome(chrome_options=chrome_options)
+    driver.set_window_size(800, 600)
+    driver.get(url)
     time.sleep(5)
     return driver
 

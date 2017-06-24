@@ -1,12 +1,19 @@
-from com_functions import selenium_spider
+from com_functions import firefox_spider
 from selenium.webdriver.common.action_chains import ActionChains
 import time, re
 from sel_urls import urls
+from pymongo import MongoClient
 
 
 def hover(driver, element):
     hov = ActionChains(driver).move_to_element(element)
     hov.perform()
+
+def get_category(driver):
+    category = driver.find_element_by_xpath('.//h1[@class="category-name"]').get_attribute('category').lower()
+    if category == 'feature phone':
+        category = 'mobile phones'
+    return category
 
 def error_func(driver):
     try:
@@ -18,33 +25,34 @@ def scroll_to_element(driver):
     driver.execute_script("arguments[0].scrollIntoView();", driver.find_element_by_xpath('.//div[@id="see-more-products"][contains(@style, "visible")]'))
 
 def check_ip(url):
-    driver = selenium_spider(url)
+    driver = firefox_spider(url)
     time.sleep(10)
     driver.quit()
 
-def scraping_cats(fh):
+def scraping_cats(coll):
     for url in urls:
-        scraping_cat(url, fh)
+        scraping_cat(url, coll)
 
 def items_found(driver):
     items = driver.find_elements_by_xpath('.//span[@class="totalCountHead"]/i')[1].get_attribute('innerHTML')
     return items
 
-def scraping_cat(url, fh):
-    driver = selenium_spider(url)
+def scraping_cat(url, coll):
+    driver = firefox_spider(url)
     #error_func(driver)
     total = items_found(driver)
-    scraping_items(driver, fh, total)
+    scraping_items(driver, coll, total)
     driver.quit() 
 
-def scraping_items(driver, fh, total):
+def scraping_items(driver, coll, total):
     l = []
     scrd = 0
     c = 0
-    category = driver.find_element_by_xpath('.//h1[@class="category-name"]').get_attribute('category').lower()
+
+    category = get_category(driver)
     while True:
         urls = driver.find_elements_by_xpath('.//section[@data-dpwlbl="Product Grid"]/div[contains(@class, "product-tuple-listing")]/div[contains(@class, "product-tuple-description")]/div[contains(@class, "product-desc-rating")]/a[@href]')
-        urls = [x.get_attribute('href') for x in urls]
+        urls = [(x.get_attribute('href'), category, 'snapdeal.com', x.find_element_by_xpath('./p').get_attribute('title')) for x in urls]
         if len(urls) == scrd:
             c += 1 
         l += urls
@@ -62,14 +70,17 @@ def scraping_items(driver, fh, total):
         if c == 10:
             break     
 
-    for url in l:
-        line = '%s\n' % url
-        fh.write(line)
+    for el in l:
+        d = {}
+        d['url'], d['category'], d['source'], d['name'] = el
+        coll.insert(d)
 
 def main():
-    fh = open('scr_urls.txt', 'w')
-    scraping_cats(fh)
-    fh.close()
+    client = MongoClient()
+    db = client.stores
+    coll = db['short_collection']
+    scraping_cats(coll)
+    client.close()
 
 main()
 

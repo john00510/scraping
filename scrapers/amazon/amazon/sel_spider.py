@@ -1,5 +1,5 @@
 #encoding: utf8
-from com_functions import selenium_spider, mongo_db2, mongo_writer
+from com_functions import mongo_open, mongo_write, spider
 from groups import groups
 import time, re
 
@@ -19,14 +19,14 @@ def mobile_exc(driver):
     except:
         print 'mobile exception error'
 
-def brand_func(driver):
+def brand_func(item):
     try:
-        return item.find_element_by_xpath('.//span[contains(text(), "by")]/following-sibling::span').text.lower()
+        return item.find_element_by_xpath('.//span[contains(text(), "by")]/following-sibling::span').text.strip().lower()
     except:
-        return None
+        return 'uknown'
 
 def scraping_cats(url):
-    driver = selenium_spider(url)
+    driver = spider(url)
     time.sleep(5)
     cats = driver.find_element_by_xpath('.//table[@id="shopAllLinks"]')
     cats = cats.find_elements_by_xpath('.//li/a[@href]')
@@ -45,11 +45,12 @@ def scraping_cats(url):
     print 'scraped %s categories' % (len(urls))
     return urls
 
-def scraping_cat(urls, fh, coll):
-    for u in urls:
+def scraping_cat(urls, coll):
+    for u in urls:+
+
         url = u['url']
         cat_name = u['cat_name'].lower()
-        driver = selenium_spider(url)
+        driver = spider(url)
         if cat_name == 'all mobile phones':
             driver = mobile_exc(driver)
         total = total_count(driver)
@@ -63,12 +64,12 @@ def scraping_cat(urls, fh, coll):
             print '%s, total: %s, scraped: %s' % (cat_name, total, scraped)
             for item in items:
                 d = {}
-                d['url'] = item.find_element_by_xpath('.//a[@title]').get_attribute('href')
-                d['name'] = item.find_element_by_xpath('.//a[@title]').get_attribute('title')
-                d['brand'] = brand_func(driver)
-                mongo_writer(coll, d)
-                #line = '%s\n' % d['url']
-                #fh.write(line)
+                d['url'] = item.find_element_by_xpath('.//a[@title]').get_attribute('href').strip()
+                d['name'] = item.find_element_by_xpath('.//a[@title]').get_attribute('title').strip()
+                d['brand'] = brand_func(item)
+                d['category'] = 'mobile phones'#cat_name.lower()
+                d['source'] = 'amazon.in'
+                mongo_write(coll, d)
 
             try:
                 next_page = driver.find_element_by_xpath('.//a[@id="pagnNextLink"]/span[@id="pagnNextString"]')
@@ -81,11 +82,10 @@ def scraping_cat(urls, fh, coll):
           
 
 if __name__ == "__main__":
-    fh = '' #open('scr_urls.txt', 'w')
-    client, coll = mongo_db2()
+    client, coll = mongo_open('short_collection')
+    coll.delete_many({'source': 'amazon.in'})
     url = 'http://www.amazon.in/gp/site-directory/ref=nav_shopall_btn'
     urls = scraping_cats(url)
-    scraping_cat(urls, fh, coll)
-    #fh.close()
+    scraping_cat(urls, coll)
     client.close()
 

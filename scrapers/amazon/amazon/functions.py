@@ -20,12 +20,12 @@ def amazon_item_parser(response, fh, coll):
         except:
             try:
                 price = response.xpath('.//span[@id="priceblock_ourprice"]/text()').extract()[0].strip()
-                offer_price = ''
-                discount = ''
+                offer_price = None
+                discount = None
             except:
-                price = ''
-                offer_price = ''
-                discount = ''
+                price = None
+                offer_price = None
+                discount = None
         return price, offer_price, discount
 
     def brand_func(response):
@@ -68,7 +68,7 @@ def amazon_item_parser(response, fh, coll):
         try:
             return feats_dict['Colour']
         except:
-            return ''
+            return None
 
     def descr(response):
         feats = response.xpath('.//div[@id="feature-bullets"]/ul/li/span/text()').extract()
@@ -86,70 +86,70 @@ def amazon_item_parser(response, fh, coll):
 
     def ref_id(feats_dict):
         try:
-            refid = feats_dict['ASIN']
+            return feats_dict['ASIN']
         except:
-            refid = ''
-        return refid
+            return None
 
     pr, of_pr, disc = price_func(response)
     feats_line, feats_dict = features_func(response)
 
     d = {}
-    d['id'] = ''
     d['name'] = name_func(response)
-    d['permalink'] = '' 
-    d['create_date'] = ''
-    d['mrp'] = ''
+    d['permalink'] = None 
+    d['create_date'] = datetime.now().strftime('%d-%m-%Y %H:%M')
+    d['mrp'] = None
     d['price'] = pr
     d['offer_price'] = of_pr
     d['discount'] = disc
-    d['store_id'] = ''
-    d['category_id'] = group_func(response) 
+    d['store_id'] = None
+    d['category'] = group_func(response)
+    d['category_id'] = None
+    d['source'] = 'amazon.in'
     d['data_source'] = 'amazon.in'
     d['ref_id'] = ref_id(feats_dict)
     d['url'] = response.url
     d['image_url'] = imageurl_func(response)
-    d['deal_notes'] = ''
+    d['deal_notes'] = None
     d['meta_title'] = d['name']
-    d['meta_key'] = ''
-    d['meta_des'] = ''
-    d['size'] = ''
-    d['size_unit'] = ''
+    d['meta_key'] = None
+    d['meta_des'] = None
+    d['size'] = None
+    d['size_unit'] = None
     d['features'] = feats_line
     d['description'] = descr(response)
-    d['key_features'] = ''
+    d['key_features'] = None
     d['color'] = color_func(feats_dict)
     d['brand'] = brand_func(response)
     d['specifications'] = feats_line
-    d['offers'] = ''
+    d['offers'] = None
     d['in_stock'] = in_stock(response)
     d['free_shipping'] = shipping(response)
-    d['shippingCharge'] = ''
-    d['mm_average_rating'] = ''
-    d['is_deal'] = ''
-    d['is_coupon'] = ''
-    d['start_date'] = ''
-    d['end_date'] = ''
-    d['coupon_code'] = ''
-    d['special_deal'] = ''
-    d['upcoming_deal'] = ''
-    d['show_as_banner'] = ''
-    d['local_store_deal'] = ''
-    d['localstore_deal_enabled'] = ''
-    d['featured'] = ''
-    d['enabled'] = ''
-    d['no_cashback'] = ''
-    d['base_product'] = ''
-    d['match_set'] = ''
-    d['match_attempt'] = ''
-    d['store_count'] = ''
-    d['display_order'] = ''
-    d['last_update'] = ''
-    d['deleted'] = ''
-    d['_id'] = {'item_url': d['url'], 'date': str(datetime.now().date())}
+    d['shippingCharge'] = None
+    d['mm_average_rating'] = None
+    d['is_deal'] = None
+    d['is_coupon'] = None
+    d['start_date'] = None
+    d['end_date'] = None
+    d['coupon_code'] = None
+    d['special_deal'] = None
+    d['upcoming_deal'] = None
+    d['show_as_banner'] = None
+    d['local_store_deal'] = None
+    d['localstore_deal_enabled'] = None
+    d['featured'] = None
+    d['enabled'] = None
+    d['no_cashback'] = None
+    d['base_product'] = None
+    d['match_set'] = None
+    d['match_attempt'] = None
+    d['store_count'] = None
+    d['display_order'] = None
+    d['last_update'] = None
+    d['deleted'] = None
     mongo_writer(coll, d)
-    csv_writer(fh, d['id'],d['name'],d['permalink'],d['create_date'],d['mrp'],d['price'],d['offer_price'],d['discount'],\
-               d['store_id'],d['category_id'],d['data_source'],d['ref_id'],d['url'],d['image_url'],d['description'],d['deal_notes'],\
+    csv_writer(fh, d['name'],d['permalink'],d['create_date'],d['mrp'],d['price'],d['offer_price'],d['discount'],\
+               d['store_id'],d['category'],d['category_id'],d['source'],d['data_source'],d['ref_id'],d['url'],d['image_url'],\
+               d['description'],d['deal_notes'],\
                d['meta_title'],d['meta_key'],d['meta_des'],d['brand'],d['size'],d['size_unit'],d['color'],d['key_features'],\
                d['features'],d['specifications'],d['offers'],d['in_stock'],d['free_shipping'],d['shippingCharge'],\
                d['mm_average_rating'],d['is_deal'],d['is_coupon'],d['start_date'],d['end_date'],d['coupon_code'],\

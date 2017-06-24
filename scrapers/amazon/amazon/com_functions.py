@@ -7,8 +7,8 @@ import time, os
 def csv_opener(fn):
     path = '/'.join(os.path.abspath('').split('/')[:-3])+'/output/amazon/'
     fn = path + fn + '.csv'
-    header = 'id,name,permalink,create_date,mrp,price,offer_price,discount,store_id,category_id,\
-              data_source,ref_id,url,image_url,description,deal_notes,meta_title,meta_key,meta_des,brand,\
+    header = 'name,permalink,create_date,mrp,price,offer_price,discount,store_id,category,category_id,\
+              source,data_source,ref_id,url,image_url,description,deal_notes,meta_title,meta_key,meta_des,brand,\
               size,size_unit,color,key_features,features,specifications,offers,in_stock,free_shipping,\
               shippingCharge,mm_average_rating,is_deal,is_coupon,start_date,end_date,coupon_code,\
               special_deal,upcoming_deal,show_as_banner,local_store_deal,localstore_deal_enabled,\
@@ -19,8 +19,8 @@ def csv_opener(fn):
     fh.write(header)
     return fh
 
-def csv_writer(fh, id, name, permalink, create_date, mrp,price,offer_price,discount,store_id,category_id,\
-               data_source,ref_id,url,image_url,description,deal_notes,meta_title,meta_key,meta_des,brand, size,\
+def csv_writer(fh, name, permalink, create_date, mrp,price,offer_price,discount,store_id,category,category_id,\
+               source,data_source,ref_id,url,image_url,description,deal_notes,meta_title,meta_key,meta_des,brand, size,\
                size_unit,color,key_features,features,specifications,offers,in_stock,free_shipping,\
                shippingCharge,mm_average_rating,is_deal,is_coupon,start_date,end_date,coupon_code,\
                special_deal,upcoming_deal,show_as_banner,local_store_deal,localstore_deal_enabled,\
@@ -33,10 +33,10 @@ def csv_writer(fh, id, name, permalink, create_date, mrp,price,offer_price,disco
     specifications = specifications.replace('"', '')
     features = features.replace('"', '')
     description = description.replace('"', '')
-    line = '"%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s",\
-           "%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s",\
-           "%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s"\n' % (id,name,permalink,create_date,\
-           mrp,price,offer_price,discount,store_id,category_id, data_source,ref_id,url,image_url,description,deal_notes,\
+    line = '"%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s",\
+           "%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s",\
+           "%s","%s","%s","%s","%s","%s","%s","%s","%s","%s"\n' % (name,permalink,create_date,\
+           mrp,price,offer_price,discount,store_id,category,category_id,source,data_source,ref_id,url,image_url,description,deal_notes,\
            meta_title,meta_key,meta_des,brand, size,size_unit,color,key_features,features,\
            specifications,offers,in_stock,free_shipping,shippingCharge,mm_average_rating,is_deal,is_coupon,\
            start_date,end_date,coupon_code,special_deal,upcoming_deal,show_as_banner,local_store_deal,\
@@ -73,19 +73,25 @@ def selenium_spider(url):
     time.sleep(5)
     return driver
 
-def mongo_db():
+def spider(url):
+    #proxy = '159.203.117.131:3128'
+    chrome_options = webdriver.ChromeOptions()
+    prefs = {"profile.managed_default_content_settings.images":2}
+    chrome_options.add_experimental_option("prefs",prefs)
+    #chrome_options.add_argument('--proxy-server=%s' % proxy)
+    driver = webdriver.Chrome(chrome_options=chrome_options)
+    driver.set_window_size(800, 600)
+    driver.get(url)
+    time.sleep(5)
+    return driver
+
+def mongo_open(coll_name):
     client = MongoClient()
     db = client.stores
-    coll = db.amazon
+    coll = db[coll_name]
     return client, coll
 
-def mongo_db2():
-    client = MongoClient()
-    db = client.stores
-    coll = db.amazon2
-    return client, coll
-
-def mongo_writer(coll, item):
+def mongo_write(coll, item):
     try:
         coll.insert(item)
     except Exception, e:

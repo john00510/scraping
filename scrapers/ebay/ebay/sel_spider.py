@@ -3,11 +3,11 @@ from com_functions import selenium_spider
 
 
 cat_list = [
-'Audio & Home Entertainment',
+#'Audio & Home Entertainment',
 #'Automotive',
 #'Baby & Mom',
 #'Books & Magazines',
-'Cameras & Optics',
+#'Cameras & Optics',
 #'Charity',
 #'Clothing & Accessories',
 #'Coins & Notes',
@@ -16,13 +16,13 @@ cat_list = [
 #'Fitness & Sports',
 #'Fragrances, Beauty & Health',
 #'Games, Consoles & Accessories',
-'Home & Kitchen Appliances',
+#'Home & Kitchen Appliances',
 #'Home & Living',
 #'Jewellery & Precious Coins',
 #'Kitchen & Dining',
-'Laptops & Computer Peripherals',
-'LCD, LED & Televisions',
-'Memory Cards, Pen Drives & HDD',
+#'Laptops & Computer Peripherals',
+#'LCD, LED & Televisions',
+#'Memory Cards, Pen Drives & HDD',
 #'Mobile Accessories',
 'Mobile Phones',
 #'Motor Classifieds',
@@ -31,12 +31,12 @@ cat_list = [
 #'Shoes',
 #'Stamps',
 #'Stationery & Office Supplies',
-'Tablets & Accessories',
+#'Tablets & Accessories',
 #'Tools , Hardware & Electricals',
 #'Toys, Games & School Supplies',
 #'Warranty Services',
 #'Watches',
-'Wearable Devices',
+#'Wearable Devices',
 #'Everything Else'
 ]
 
@@ -51,15 +51,15 @@ def scraping_categories(url, fh):
         cats = [x for x in cats if x.text not in parsed_cats and x.text in cat_list]
         if len(cats) == 0: break
         cat = cats[0]
-        d['cat_name'] = cat.text
-        parsed_cats.append(d['cat_name'])
+        d['category'] = cat.text
+        parsed_cats.append(d['category'])
         cat.click()
         time.sleep(1)
         button.click()
         #####
         time.sleep(5)
-        second_url, total_items = scraping_pages(driver, driver.current_url)
         d['first_url'] = driver.current_url
+        second_url, total_items = scraping_pages(driver, driver.current_url)
         d['second_url'] = second_url
         d['total_items'] = total_items
         d['pages'] = page_count(total_items)

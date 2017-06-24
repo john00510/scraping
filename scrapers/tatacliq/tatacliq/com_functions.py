@@ -6,8 +6,8 @@ import time, os
 def csv_opener(fn):
     path = '/'.join(os.path.abspath('').split('/')[:-3])+'/output/tatacliq/'
     fn = path + fn + '.csv'
-    header = 'id,name,permalink,create_date,mrp,price,offer_price,discount,store_id,category,category_id,\
-              data_source,ref_id,url,image_url,description,deal_notes,meta_title,meta_key,meta_des,brand,\
+    header = 'name,permalink,create_date,mrp,price,offer_price,discount,store_id,category,category_id,\
+              source,data_source,ref_id,url,image_url,description,deal_notes,meta_title,meta_key,meta_des,brand,\
               size,size_unit,color,key_features,features,specifications,offers,in_stock,free_shipping,\
               shippingCharge,mm_average_rating,is_deal,is_coupon,start_date,end_date,coupon_code,\
               special_deal,upcoming_deal,show_as_banner,local_store_deal,localstore_deal_enabled,\
@@ -18,8 +18,8 @@ def csv_opener(fn):
     fh.write(header)
     return fh
 
-def csv_writer(fh, id, name, permalink, create_date, mrp,price,offer_price,discount,store_id,category,category_id,\
-               data_source,ref_id,url,image_url,description,deal_notes,meta_title,meta_key,meta_des,brand, size,\
+def csv_writer(fh, name, permalink, create_date, mrp,price,offer_price,discount,store_id,category,category_id,\
+               source,data_source,ref_id,url,image_url,description,deal_notes,meta_title,meta_key,meta_des,brand, size,\
                size_unit,color,key_features,features,specifications,offers,in_stock,free_shipping,\
                shippingCharge,mm_average_rating,is_deal,is_coupon,start_date,end_date,coupon_code,\
                special_deal,upcoming_deal,show_as_banner,local_store_deal,localstore_deal_enabled,\
@@ -31,11 +31,11 @@ def csv_writer(fh, id, name, permalink, create_date, mrp,price,offer_price,disco
     meta_des = name
     features = str(features).replace('"', '')
     description = description.replace('"', '')
-    line = '"%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s",\
-           "%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s",\
-           "%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s"\n' % (id,name,permalink,create_date,\
-           mrp,price,offer_price,discount,store_id,category,category_id, data_source,ref_id,url,image_url,\
-           description,deal_notes,meta_title,meta_key,meta_des,brand, size,size_unit,color,key_features,features,\
+    line = '"%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s",\
+           "%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s",\
+           "%s","%s","%s","%s","%s","%s","%s","%s","%s","%s"\n' % (name,permalink,create_date,\
+           mrp,price,offer_price,discount,store_id,category,category_id,source,data_source,ref_id,url,image_url,description,deal_notes,\
+           meta_title,meta_key,meta_des,brand, size,size_unit,color,key_features,features,\
            specifications,offers,in_stock,free_shipping,shippingCharge,mm_average_rating,is_deal,is_coupon,\
            start_date,end_date,coupon_code,special_deal,upcoming_deal,show_as_banner,local_store_deal,\
            localstore_deal_enabled,featured,enabled,no_cashback,base_product,match_set,match_attempt,store_count,\
@@ -70,13 +70,13 @@ def selenium_spider(url):
     time.sleep(5)
     return driver
 
-def mongo_db():
+def mongo_open(coll_name):
     client = MongoClient()
     db = client.stores
-    coll = db.tatacliq
+    coll = db[coll_name]
     return client, coll
 
-def mongo_writer(coll, item):
+def mongo_write(coll, item):
     try:
         coll.insert(item)
     except Exception, e:
