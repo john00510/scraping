@@ -3,6 +3,8 @@
 import pandas as pd
 from fuzzywuzzy import fuzz, process
 from processors import open_mongo, open_csv, write_csv
+from flipkart import flipkart
+from tatacliq import tatacliq
 
 
 def groupby(df, list1):
@@ -30,18 +32,14 @@ def match(row, li, category, brand):
 
 
 if __name__ == '__main__':
-    global fh_am
-    #fh_ta = open_csv('tatacliq')
-    fh_am = open_csv('amazon')
-    #fh_tot = open_csv('total')
+    #global fh_am
 
-    ta = open_mongo('short_collection', 'tatacliq.com').drop_duplicates('name')
-    am = open_mongo('short_collection', 'amazon.in').drop_duplicates('name')
-    eb = open_mongo('full_collection', 'ebay.in').drop_duplicates('name')
+    #ta = open_mongo('short_collection', 'tatacliq.com').drop_duplicates('name')
+    #am = open_mongo('short_collection', 'amazon.in').drop_duplicates('name')
+    #eb = open_mongo('full_collection', 'ebay.in').drop_duplicates('name')
 
-    list1 = [ta, eb]
-    amazon = groupby(am, list1)
-    write_csv(amazon, fh_am, 'amazon')
+    flipkart = groupby(flipkart(), [tatacliq(), ebay()])
+    #write_csv(amazon, fh_am, 'amazon')
 
     #list2 = [eb]
     #amazon = groupby(am, list2)
@@ -52,6 +50,6 @@ if __name__ == '__main__':
     #write_csv(total, fh_tot, 'total')
 
     #fh_ta.close()
-    fh_am.close()
+    #fh_am.close()
     #fh_tot.close()
 

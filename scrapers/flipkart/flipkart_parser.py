@@ -50,7 +50,7 @@ def csv_conn():
 
 
 if __name__ == '__main__':
-    #group_parser()
-    csv_conn()
+    group_parser()
+    #csv_conn()
 
 

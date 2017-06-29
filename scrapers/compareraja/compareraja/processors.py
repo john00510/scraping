@@ -1,6 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-import time, os
+import time, os, re, uuid, datetime
 
 
 def chrome_spider(url):
@@ -8,7 +8,6 @@ def chrome_spider(url):
     prefs = {"profile.managed_default_content_settings.images":2}
     chrome_options.add_experimental_option("prefs",prefs)
     driver = webdriver.Chrome(chrome_options=chrome_options)
-    #driver.set_window_size(600, 800)
     driver.get(url)
     time.sleep(5)
     return driver
@@ -16,32 +15,23 @@ def chrome_spider(url):
 def scrape_item(response):
     def get_features(repsonse):
         feats = response.xpath('.//ul[@class="fedet"]')
-        l = []
+        l = ''
         for f in feats:
-            d = {}
-            d2 = {}
             group = f.xpath('./li[@class="tp"]/text()').extract()[0].strip()
             for e in f.xpath('./li'):
                 try:
                     e1 = e.xpath('./p/text()').extract()[0].strip().replace('.', ',')
-                    e2 = e.xpath('./span/text()').extract()[0].strip()
-                    d2[e1] = e2                              
+                    e2 = e.xpath('./span/text()').extract()[0].strip() 
+                    if 'no' in e2.lower():
+                        continue      
+                    if 'yes' in e2.lower():
+                        l2 = e1
+                    else:
+                        l2 = '%s %s' % (e1, e2)
+                    l += l2 + ' | '                      
                 except:
                     pass
-            d[group] = d2
-            l.append(d)
-        return l
-
-    def get_stores(response):
-        elements = response.xpath('.//div[@class="Prices Pricesnew"]/ul[contains(@class, "nemcomp-price-row-nw")][contains(@id, "ComparePrice1")]')
-        dd = {}
-        for e in elements:
-            d = {}
-            merchant = e.xpath('.//p[@class="merlogoli"]/span/@class').extract()[0]
-            d['price'] = e.xpath('./li[@class="cp-c5"]/span/span/text()').extract()[0].replace('Rs.', '').strip()
-            d['url'] = e.xpath('./li[@class="cp-c6"]/a/@href').extract()[0]
-            dd[merchant] = d
-        return dd
+        return l.strip().strip('|').strip()
 
     def get_price(e):
         if len(e.xpath('./div/p[@class="mertext"]/span/text()').extract()) == 0:
@@ -56,71 +46,154 @@ def scrape_item(response):
             image = response.xpath('.//a[@class="simpleLens-lens-image"]/img/@src').extract()[0]
         return image
 
-    coll = response.meta['coll']
-    fh = response.meta['fh']
-    d = {}
-    d['name'] = response.meta['name']
-    d['category'] = response.meta['category']
-    d['source'] = response.meta['source']
-    d['url'] = response.meta['url']
-    d['image_url'] = get_image(response)
-    d['features'] = get_features(response)
-    d['merchants'] = get_stores(response)
-    coll.insert(d)
-    write_csv(fh, d['name'], d['category'], d['url'], d['source'], d['features'], d['merchants'], d['image_url']) 
+    def get_url(e):
+        url = e.xpath('./li[@class="cp-c6"]/a/@onclick').extract()[0]
+        url = re.findall(r"'(http.+?)',", url)[0]
+        if 'amazon' in url:
+            return url
+        if 'ebay' in url:
+            return url
+        if 'flipkart' in url:
+            return url
+        if 'shopclues' in url:
+            return url
+        if 'snapdeal' in url:
+            return
+        if 'tatacliq' in url:
+            return url
+        if 'gadgetsnow' in url:
+            return url
+        else:
+            return None
 
-def open_csv(fn):
-    fn = '/'.join(os.path.abspath('').split('/')[:-3])+'/output/compareraja/' + fn + '.csv'
-    header = 'name,category,url,image_url,source,amazon_link,amazon_price,ebay_link,ebay_price,flipkart_link,flipkart_price,tatacliq_link,tatacliq_price,shopclues_link,shopclues_price,snapdeal_link,snapdeal_price,gadgets_link,gadgets_price,features\n'
-    fh = open(fn, 'wb')
-    fh.write(header)
-    return fh
+    def get_source(store):
+        return store
 
-def write_csv(fh, name, cat, url, src, features, d, image_url):
-    name = name.replace('"', ' ')
-    feats = str(features).replace('"', "'")
+    def get_category_id(category):
+        if category == 'mobile phones':
+            return 7
+        if category == 'tablets':
+            return 7
+        if category == 'televisions':
+            return 9
+        if category == 'air_conditioners': # air conditioners air coolers
+            return 23
+        if category == 'laptops':
+            return 8
+        if category == 'washing_machines':
+            return 20
+        if category == 'refrigerators':
+            return 21
+        if category == 'cameras':
+            return 11
+        if category == 'water purifiers':
+            return 22
+        if category == 'microwave_ovens':
+            return 22
+        if category == 'printers':
+            return 12
+        if category == 'trimmers': # personal care
+            return 24
+
+    def get_store_id(merchant):
+        if merchant == 'amazon': #
+            return 2
+        if merchant == 'ebay':
+            return 417
+        if merchant == 'flipkart': 
+            return 1
+        if merchant == 'shopclues': #
+            return 3
+        if merchant == 'tatacliqli': #
+            return 4
+        if merchant == 'snapdeal': #
+            return 5
+
+    cur = response.meta['cur']
+    conn = response.meta['conn']
+
+    elements = response.xpath('.//div[@class="Prices Pricesnew"]/ul[contains(@class, "nemcomp-price-row-nw")][contains(@id, "ComparePrice1")]')
+    match = {}
+    for e in elements:
+        _id = str(uuid.uuid4())
+        merchant = e.xpath('.//p[@class="merlogoli"]/span/@class').extract()[0]
+        store_id = get_store_id(merchant) #
+        price = e.xpath('./li[@class="cp-c5"]/span/span/text()').extract()[0].replace('Rs.', '').strip()
+        url = get_url(e) #
+        print url
+        name = response.meta['name'].replace('"', "'") #
+        category_id = get_category_id(response.meta['category']) #
+        data_source = get_source(merchant)
+        comp_url = response.meta['url']
+        image_url = get_image(response)
+        features = get_features(response).replace('"', "'") #
+        t = (_id, merchant)
+        match[merchant] = _id
+        #image_sql(cur, conn, _id, image_url)
+        #product_sql(cur, conn, _id, name, category_id, url, comp_url, data_source, features, price)
+
+    #match_sql(cur, conn, match)
+
+def product_sql(cur, conn, _id, name, category_id, url, comp_url, data_source, features, price):
+    create_date = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    cur.execute("INSERT INTO products (id, name, category_id, url, data_source, features, price, create_date) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)", (_id, name.encode('utf8'), category_id, url, data_source, features.encode('utf8'), price, create_date))
+    conn.commit()
+
+def image_sql(cur, conn, _id, image_url):
+    cur.execute("INSERT INTO product_images (product_id, img1_url) VALUES (%s, %s)", (_id, image_url))
+    conn.commit()
+
+def match_sql(cur, conn, d):
     try:
-        am_url = d['amazon']['url']
-        am_prc = d['amazon']['price']
+        amazon = d['amazon']
     except:
-        am_url = None
-        am_prc = None
+        amazon = None
     try:
-        eb_url = d['ebay']['url']
-        eb_prc = d['ebay']['price']
+        ebay = d['ebay']
     except:
-        eb_url = None
-        eb_prc = None
+        ebay = None
     try:
-        fl_url = d['flipkart']['url']
-        fl_prc = d['flipkart']['price']
+        tatacliq = d['tatacliqli']
     except:
-        fl_url = None
-        fl_prc = None
+        tatacliq = None
     try:
-        ta_url = d['tatacliq']['url']
-        ta_prc = d['tatacliq']['price']
+        flipkart = d['flipkart']
     except:
-        ta_url = None
-        ta_prc = None
+        flipkart = None
     try:
-        sh_url = d['shopclues']['url']
-        sh_prc = d['shopclues']['price']
+        shopclues = d['shopclues']
     except:
-        sh_url = None
-        sh_prc = None
+        shopclues = None
     try:
-        sn_url = d['snapdeal']['url']
-        sn_prc = d['snapdeal']['price']
+        snapdeal = d['snapdeal']
     except:
-        sn_url = None
-        sn_prc = None
+        snapdeal = None
+    cur.execute("INSERT INTO product_match (product_1, product_2, product_3, product_4, product_5, product_6) VALUES (%s, %s, %s, %s, %s, %s)", (flipkart, shopclues, amazon, snapdeal, ebay, tatacliq))
+    conn.commit() 
+
+def get_store(d, store):
     try:
-        ga_url = d['gadgets']['url']
-        ga_prc = d['gadgets']['price']
+        url = d[store]['url']
+        price = d[store]['price']
     except:
-        ga_url = None
-        ga_prc = None
-    line = '"%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s"\n' % (name, cat, url, image_url, src, am_url, am_prc, eb_url, eb_prc, fl_url, fl_prc, ta_url, ta_prc, sh_url, sh_prc, sn_url, sn_prc, ga_url, ga_prc, feats)
-    fh.write(line.encode('utf-8')) 
+        url = None
+        price = None
+    return price, url
+
+'''
+[
+	"mobile phones",
+	"tablets",
+	"televisions",
+	"air_conditioners",
+	"laptops",
+	"washing_machines",
+	"refrigerators",
+	"cameras",
+	"water_purifiers",
+	"microwave_ovens",
+	"printers",
+	"trimmers"
+]
+'''
 

@@ -1,23 +1,33 @@
 import scrapy
 from pymongo import MongoClient
-from processors import scrape_item, open_csv
+import MySQLdb as mdb
+from processors import scrape_item
 
 class MySpider(scrapy.Spider):
     name = 'compareraja'
-
 
     def start_requests(self):
         client = MongoClient()
         db = client.stores
         coll1 = db['short_collection'].find({'source': 'compareraja.in'})
         total = coll1.count()
-        coll2 = db['full_collection']
-        fh = open_csv('compareraja')
+
+        conn = mdb.connect(
+            host = '104.236.124.98',
+            user = 'john',
+            passwd = 'oWeiklxc',
+            db = 'pricemer_db'
+        )
+        cur = conn.cursor()
+
+        #cur.execute("TRUNCATE TABLE products")
+        #cur.execute("TRUNCATE TABLE product_match")
+        #cur.execute("TRUNCATE TABLE product_images")
+
         count = 0
-        for c in coll1[:]:
+        for c in coll1[:10]:
             url = c['url']
             cat = c['category']
-            src = c['source']
             name = c['name']
             count += 1
             yield scrapy.Request(
@@ -30,9 +40,8 @@ class MySpider(scrapy.Spider):
                     'url': url,
                     'category': cat,
                     'name': name,
-                    'source': src,
-                    'coll': coll2,
-                    'fh': fh,
+                    'conn': conn,
+                    'cur': cur,
                 }
                 )
             print 'total %s, scraped %s' % (total, count)
